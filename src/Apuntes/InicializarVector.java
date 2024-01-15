@@ -42,9 +42,9 @@ public class InicializarVector {
 		nombres[b]=sc.next();
 	}
 	
-	for(int b=0;b==2;b++) {
+	for(int b=0;b<5;b++) {
 		
-	System.out.println(nombres[b] +",");
+	System.out.println(nombres[b]+",");
 	}
 	
 	
