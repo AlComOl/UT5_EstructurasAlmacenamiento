@@ -5,18 +5,18 @@ public class Apuntes_2_4 {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		
-		String nombres[]=new String[5];
-		int notas[]=new int[6];
+		String nombres[]=new String[6];
+		double notas[]=new double[4];
 //		para Strings 
-//		for (int b=0;b<5;b++) {
-//			System.out.println("Introduce");
-//			nombres[b]=sc.next();
-//		}
-//		para interos
-		for(int c=0;c<6;c++) {
-			System.out.println("introduce Enteros");
-			notas[c]=sc.nextInt();
+		for ( int b=0;b<4;b++) {
+			System.out.println("Introduce");
+			notas[b]=sc.nextDouble();
 		}
+//		para interos
+//		for(int c=0;c<6;c++) {
+//			System.out.println("introduce Enteros");
+//			notas[c]=sc.nextInt();
+//		}
 		
 //		for(int b=0;b<nombres.length;b++) {
 			
@@ -39,7 +39,7 @@ public class Apuntes_2_4 {
 //		}
 //Los elementos de la mitad derecha, de principio a fin	
 		
-//		for(int i=nombres.length/2+1;i<nombres.length;i++) {
+//		for(int i=nombres.length/2;i<nombres.length;i++) {
 //			System.out.println(nombres[i]);
 //		}
 //De todos los elementos del vector, del final al principio
@@ -62,9 +62,24 @@ public class Apuntes_2_4 {
 		
 //Los elementos de la mitad derecha, del final al principio
 		
-		for(int i=notas.length-1;i>notas.length/2-1;i--) {
-			System.out.println(notas[i]);
-		}
-	  }
-	}
+//		for(int i=notas.length-1;i>notas.length/2-1;i--) {
+//			System.out.println(notas[i]);
+//		}
+	
 
+int alum_nota=0;
+final int NUM_ALUM=4;
+boolean encontrado = false;
+int alum=4;
+double nota_bus=3;
+while (alum < NUM_ALUM && encontrado == false)
+if (nota_bus == notas[alum]) { /* encuentra un alumno con la nota */
+encontrado = true; /* terminar búsqueda, podría hacerse con un break*/
+ alum_nota= alum; /* guardo el alumno que la tiene */
+}
+else alum++; /* si no lo encuentra mirar al siguiente */
+if (encontrado == true) System.out.println ("El alumno con nota "+ nota_bus+ " es "+ alum_nota);
+else System.out.println ( "NO EXISTE ALUMNO CON LA NOTA "+ nota_bus);
+
+	  }
+		}
