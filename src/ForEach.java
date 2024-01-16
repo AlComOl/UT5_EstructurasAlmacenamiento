@@ -11,6 +11,7 @@ public static void main (String[] args) {
 	}
 	
 	 {
+//		 bucle foreach o for mejorado 
 		for(String pais:paises) {
 			System.out.println(pais);
 		}
