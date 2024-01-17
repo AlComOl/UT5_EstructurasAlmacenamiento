@@ -17,18 +17,43 @@ public class Prg5_3 {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		
-	
 		int v[]=new int[15];
-		System.out.println("introduce un valor");
+		int n,posicion;
+		
+		System.out.println("Introduce 8 numeros (ordenados de forma creciente)");
 		for(int i=0;i<8;i++) {
 		 v[i]=sc.nextInt();
 		 
 		}
 		
-		for(int i=0;i<15;i++) {
-			System.out.println(v[i]);
+		System.out.println("introduce numero entero para ordenarlo dentro del vector");
+		n=sc.nextInt();
+
+		posicion=0;
+		while(posicion<=14&&v[posicion]<n) {//encuentra el lugar del numero(posicion)siendo [j] el valor de la posicion
+			
+			posicion++;
+		
+		}
+		if(n>v[7]) {//Si el numero es mayor que el valor de la posicion 7 inserta el valor del n en la posicion 8
+			v[8]=n;
+		
+		}else {//Si hay que empujar el vector
+			System.out.println(posicion);
+			for(int i =13;i>= posicion;i--) {//
+				v[i+1]=v[i];
+			}
+			v[posicion]=n;
+		}
+		
+		System.out.println("Ordenado");
+		for(int i=0;i<14;i++) { //*Saca valores del array
+		System.out.println(v[i]);
+		}
 		}
 	}
 
-}
+	
+
+
+
