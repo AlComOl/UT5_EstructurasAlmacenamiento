@@ -3,7 +3,7 @@ import java.util.*;
 /***************************************************************************************************************************
  * Autor: Álvaro Comenge 
  * 
- * Fecha:
+ * Fecha:17/01/24
  * 
  *  Se dispone de un vector de enteros de 15 elementos, de los cuales solo están con datos las 8 primeras posiciones. 
  *  Los datos almacenados en el vector están ordenados de forma creciente. Se pide solicitar un número entero al usuario y 
@@ -28,7 +28,6 @@ public class Prg5_3 {
 		
 		System.out.println("introduce numero entero para ordenarlo dentro del vector");
 		n=sc.nextInt();
-
 		posicion=0;
 		while(posicion<=14&&v[posicion]<n) {//encuentra el lugar del numero(posicion)siendo [j] el valor de la posicion
 			
@@ -40,14 +39,14 @@ public class Prg5_3 {
 		
 		}else {//Si hay que empujar el vector
 			System.out.println(posicion);
-			for(int i =13;i>= posicion;i--) {//
+			for(int i =13;i>= posicion;i--) {//i= posicion penultima del vector, 
 				v[i+1]=v[i];
-			}
-			v[posicion]=n;
+			}//cada vez que itera empuja el valor a i+1 dejando un hueco
+			v[posicion]=n;//al llegar a la posicion metemos n en la posicion.
 		}
 		
 		System.out.println("Ordenado");
-		for(int i=0;i<14;i++) { //*Saca valores del array
+		for(int i=0;i<14;i++) { //*Saca valores del vector
 		System.out.println(v[i]);
 		}
 		}
