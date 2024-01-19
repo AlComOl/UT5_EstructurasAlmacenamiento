@@ -24,17 +24,17 @@ public class Prg5_5 {
 				r[i]=n;
 				aux+=n;
 		}
-	System.out.println(aux);
-	
-	
+
 		media=aux/T;
-		System.out.println(media);
+		
 		System.out.println("Numeros mayores a la media son :");
 			for(int i=0;i<T;i++) {
+				
 				if(r[i]>media)
+					
 		System.out.println(r[i]);
 		
 	}
-
+		sc.close();
 	}
 }
