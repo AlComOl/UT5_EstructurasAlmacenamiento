@@ -17,7 +17,7 @@ public class Prg5_13 {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		final int T=10;
-		int p1=0,p2=0,p3=0,p4=0,p5=0,p6=0,p7=0,p8=0,p9=0,p10=0,b1=0,n=0;
+		int p1=0,p2=0,p3=0,p4=0,p5=0,p6=0,p7=0,p8=0,p9=0,p10=0,b1=0,n=0,ganador=0;
 		int vc[]=new int[T];
 		
 		System.out.println("Votaciones a presidente de la comunidad"
@@ -34,11 +34,13 @@ public class Prg5_13 {
 		 
 		for(int i=0;i<vc.length;i++) {//votaciones
 		do {
+			System.out.println("Vota ");
+			n=sc.nextInt();
 			if(n>=0&&n<=10) {
-				System.out.println("Vota ");
-			 n=sc.nextInt();
+				
+				int voto=n;
 			
-				vc[i]=n;
+				vc[i]=voto;
 				
 				//capturo res por piso
 					if(vc[i]==1)
@@ -60,19 +62,28 @@ public class Prg5_13 {
 					else if(vc[i]==9)
 						p9++;
 					else if(vc[i]==10)
-						p10++;
+						b1++;
 				}else {
 					 System.out.println("Vuelve a votar con el digito correcto");		
-						n=sc.nextInt();
-						i-=1;
+//					
 				}
 		
 		
-		}while(n<1||n>10&&i==10);
+		}while(n<1||n>10);
 		
 		}
-			
-				System.out.println("\n Votos piso 1 :"+p1+
+		int mayor = vc[0]; // Suponemos que el primer elemento es el mayor
+	    int posicion = 0;
+
+	    for (int i = 0; i < vc.length; i++) {
+	        if (vc[i] > mayor) {
+	            mayor = vc[i]; // Actualizamos el número mayor
+	            posicion = i; // Actualizamos la posición del número mayor
+	        }
+	    }
+		System.out.println(mayor);
+		System.out.println(posicion);
+		System.out.println("\n Votos piso 1 :"+p1+
 						"\n Votos piso 2 :"+p2+
 						"\n Votos piso 3 :"+p3+
 						"\n Votos piso 4 :"+p4+
@@ -81,7 +92,10 @@ public class Prg5_13 {
 						"\n Votos piso 7 :"+p7+
 						"\n Votos piso 8 :"+p8+
 						"\n Votos piso 9 :"+p9+
-						"\n Votos Bajo Comercial :"+p10);	
+						"\n Votos Bajo Comercial :"+b1+
+						"\n **************************"+
+						"\n El presidente de la comunidad sera el dueyo del piso "+mayor+" con "+posicion+ " votos");
+		
 	sc.close();
 }
 }
