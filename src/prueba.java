@@ -1,38 +1,45 @@
 import java.util.Scanner;
 
-public class prueba {
+public class Ej_6 {
     /*
      * @author: Francisco Verdeguer García
      * @version: 17/01/24
-     * @description: Realiza un programa que lee 20 números reales y saca por pantalla aquellos que sean mayores que la media.
+     * @description:Programa que lea un número positivo de 10 cifras y 
+        compruebe si es capicua utilizando un vector de números  
+        enteros de 10 componentes. Valida la entrada.
     */
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
+        long vector[] = new long[10];
+        boolean numCapi = false; 
+        int i=0,j=0;
+        long n1, aux;
 
-        final int CANTNUMEROS=20;
-        int numeros[]= new int[CANTNUMEROS];
-
-        int n;
-        double sumaValores=0.0, media;
-        
-        System.out.println("Introduce numeros");
-        
-        for(int i=0; i< CANTNUMEROS;i++) {
-            n=tec.nextInt();
-            numeros[i]=n;
-            sumaValores+=n;
+        System.out.println("Ingresa el numero");
+        n1 = tec.nextLong();
+        aux = n1;
+        for (int k = 0; k < vector.length; k++) {
+            if(n1>0){
+                vector[k] = n1%10;
+                n1/=10;
+                j++;
+            }
         }
 
-        media=sumaValores/CANTNUMEROS;
-        
-        System.out.println(sumaValores);
-        
-        System.out.println(media);
-        for(int i=0; i< CANTNUMEROS;i++) {
-            if(numeros[i]>media)
-                System.out.print(numeros[i] + " ");
+        while (i<j && numCapi == false) {
+            if (vector[i] == vector[j-1]) {
+                i++;
+                j--;
+            } else {
+                numCapi = true;
+            }
         }
 
+        if (numCapi == true) {
+            System.out.println("El numero " + aux + " no es capicua");
+        } else {
+            System.out.println("El numero " + aux + " es capicua");
+        }
 
         tec.close();
     }

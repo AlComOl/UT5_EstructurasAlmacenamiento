@@ -3,7 +3,7 @@ import java.util.*;
 /***************************************************************************************************************************
  * Autor: Álvaro Comenge 
  * 
- * Fecha:20/01/24
+ * Fecha:21/01/24
  * 
  * 	Programa que lea un número positivo de 10 cifras y compruebe si es capicua utilizando un vector de números enteros de 10 
  * componentes. Valida la entrada.
