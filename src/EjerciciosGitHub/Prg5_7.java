@@ -14,16 +14,23 @@ public class Prg5_7{
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		
-		int sec[]= {4,2,4,4,4,5,6,7,8,9};
+		int sec[]=new int [11];
 		int contador[]=new int[10];
 		int n;
 		
-//					cada vez que encuentro un numero incremento el "incremento" cada posicion del contador es un vector
-					for(int i=0;i<sec.length;i++) {
-				
-							contador[sec[i]]++;
-						
-					}
+		System.out.println("Introduce numero");
+		 n=sc.nextInt();
+		 
+		while(n>=0&&n<=10) {			
+				sec[n]++;
+			System.out.println("Introduce numero");
+			n=sc.nextInt();
+			}
+//					for(int i=0;i<sec.length;i++) {
+//				
+//							contador[sec[i]]++;
+//						
+//					}
 					
 						for(int i=0;i<contador.length;i++) {
 					
