@@ -36,7 +36,7 @@ public class EjercicioConsolidacion {
 		boolean encontrado = false;
 		int res=0;
 		int alum=0;
-		int alum_nota=0;
+		int alum_nota=-1;
 		int NUM_ALUM=5;
 		
 		while (alum < NUM_ALUM && encontrado == false)
@@ -48,12 +48,12 @@ public class EjercicioConsolidacion {
 				alum++;
 			}
 			
-			if (encontrado == true) {
-				res=alum_nota;
-			}
-			else {
-				res=-1;
-			}
+//			if (encontrado == true) {
+//				res=alum_nota;
+//			}
+//			else {
+//				res=-1;
+//			}
 			
 		return res;
 		}

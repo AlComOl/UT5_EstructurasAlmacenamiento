@@ -1,68 +1,46 @@
+
 import java.util.*;
 
-public class prueba {
-    public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
-        int vecinos = 10;
-        int Voto[] = new int[vecinos];
+public class prueba{
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println("¿A que vecino vas a votar?");
-            System.out.println("1. Mark  |  2. Axel   |  3. Roberto");
-            System.out.println("4. Marta |  5. Tilin  |  6. Vanesa");
-            System.out.println("7. David |  8. Sarina |  9. Mai");
-            System.out.println("10. Maria");
-            int eleccion = tec.nextInt();
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
 
+    int v1[] = {2, 4, 6, 8, 10, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // tamaño 20
+    int n, n1, n2 = 0, c_pos = 6; // inicializar c_pos en 6, ya que inicialmente hay 6 elementos en el vector
 
-            while (eleccion > 10 || eleccion < 0) {
-                eleccion = tec.nextInt();
-            }
+    do {
+        System.out.println("\n 1.- introducir un elemento en el vector: " + "\n 2.- buscar un elemento" + "\n Elige opcion");
+        n = sc.nextInt();
 
-            switch (eleccion) {
-                case 1:
-                    Voto[0] += 1;
-                    break;
-                case 2:
-                    Voto[1] += 1;
-                    break;
-                case 3:
-                    Voto[2] += 1;
-                    break;
-                case 4:
-                    Voto[3] += 1;
-                    break;
-                case 5:
-                    Voto[4] += 1;
-                    break;
-                case 6:
-                    Voto[5] += 1;
-                    break;
-                case 7:
-                    Voto[6] += 1;
-                    break;
-                case 8:
-                    Voto[7] += 1;
-                    break;
-                case 9:
-                    Voto[8] += 1;
-                    break;
-                case 10:
-                    Voto[9] += 1;
-                    break;
-            }
+        switch (n) {
+            case 1:
+                System.out.println("Introducir valor en el vector:");
+                n2 = sc.nextInt();
+                if (c_pos >= v1.length) {
+                    System.err.println("El vector está lleno");
+                } else {
+                    insertar(n2, v1, c_pos);
+                    c_pos++; // Incrementar c_pos después de insertar el valor
+                    for (int i = 0; i < v1.length; i++) {
+                        System.out.print(v1[i] + " ,");
+                    }
+                }
+                break;
+            case 2:
+                // Implementar la funcionalidad de búsqueda
+                break;
+            default:
+                break;
         }
+    } while (n != 0);
+}
 
-        int presidente = 0;
-        int mayor = 0;
-        int presi[] = new int[10];
-        for (int i = 0; i < vecinos; i++) {
-            if (Voto[i] > mayor) {
-                mayor = Voto[i];
-                presidente = i + 1;
-            }
-        }
-       System.out.println("El nuevo presidente es el apartamento " + presidente + " con " + mayor + " votos");
-
+public static void insertar(int n, int v1[], int c_pos) {
+    int i;
+    for (i = c_pos - 1; i >= 0 && v1[i] > n; i--) {
+        v1[i + 1] = v1[i];
     }
+    v1[i + 1] = n;
+}
 }

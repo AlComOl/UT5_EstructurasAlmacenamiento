@@ -39,7 +39,7 @@ public class Prg5_3 {
 		
 		}else {//Si hay que empujar el vector
 			System.out.println(posicion);
-			for(int i =13;i>= posicion;i--) {//i= posicion penultima del vector, 
+			for(int i =13;i>=posicion;i--) {//i= posicion penultima del vector, 
 				v[i+1]=v[i];
 			}//cada vez que itera empuja el valor a i+1 dejando un hueco
 			v[posicion]=n;//al llegar a la posicion metemos n en la posicion.
