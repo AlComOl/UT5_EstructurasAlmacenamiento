@@ -11,7 +11,7 @@ public class ConcadenacionVectores {
 		int v1[]= {10,20,30,40,50,60,70};
 		int v2[]= {80,90,125,235,345,465,575};
 		int v1v2[]=new int [v1.length+v2.length];
-//CONCADENACION CON WHILE****************************************************************************************
+//CONCADENACION CON WHILE**********SERIA MEJOR HACERLO ASI PORQUE NO TENEMOS UNA VARIBLE BOOLEANA****************************************************
 //		while(pos_v3<v1.length) {
 //			v1v2[pos_v3]=v1[pos_v1];
 //			pos_v3++;

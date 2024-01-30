@@ -18,7 +18,7 @@ public class Prg5_1 {
 		System.out.println("Introduce numero entero");
 		int n=sc.nextInt();
 		System.out.println("Los numeros mayores o iguales al numero introducido son :");
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<v.length;i++) {
 			if(v[i]>=n) {
 				System.out.print( v[i]+",");
 			}	

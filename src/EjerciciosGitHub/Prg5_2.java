@@ -26,13 +26,13 @@ public class Prg5_2 {
 				n1=sc.nextInt();	
 			System.out.println("Introduce numero donde termina la secuencia");
 				n2=sc.nextInt();
-				if(n1==n2-1||n2<n1||n2>v.length) {
+				if(/*n1==n2-1||*/n2<n1||n2>v.length) {
 					System.out.println("Los numeros de secuencia son incorrectos");
 				}
-		}while(n1==n2-1||n2<n1||n2>v.length);
+		}while(/*n1==n2-1||*/n2<n1||n2>v.length);
 			
 				for(int i=n1;i<n2-1;i++) {
-					System.out.println(v[i]);
+					System.out.print(v[i]+", ");
 				
 				}
 		
