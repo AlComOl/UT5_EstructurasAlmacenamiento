@@ -3,21 +3,37 @@ public class Prg5_6FUN {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		int v[]= {1,2,3,4,5,6,7,8,90};
+		int t=10;
+		int v[]=new int[10];
 		
-		
-	}
-		public static  void cargarVector(int v[]) {
-		
-	}
-		
-		public static int capicua(int v,int n) {//seria el numero de elementos que hay en el vector
+		cargarVector(v);
+		System.out.println(capicua(v,10));
+		}
+	
+		public static void cargarVector(int v[]) {
 			
-			for(i=0,j=n-1;i<j&&numCapi==true;i++,j++) {
-				if(v[i]!=v[j-1]);
-				numcapi=false;
+			Scanner sc=new Scanner(System.in);
+			for(int i=0;i<v.length;i++) {
+				 System.out.println("Introduce elementos");
+				v[i]=sc.nextInt();
 			}
-			return capicua;
+		
+	}
+		
+		public static boolean capicua(int v[],int n) {
+			/*********************************************
+			 * Metodo capicua:Haya si el numero es capicua
+			 * @param v[]=vector con t de tamaño
+			 * @param n es el tamaño del vector
+			 *
+			 *********************************************/
+			int i,j;
+			boolean numCapi=true;
+			for(i=0,j=n-1;i<j&&numCapi==false;i++,j--) {
+				if(v[i]!=v[j-1])
+				numCapi=false;
+			}
+			return numCapi;
 		}
 	
 }

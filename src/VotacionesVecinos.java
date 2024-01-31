@@ -74,7 +74,7 @@ public class VotacionesVecinos {
             int voto = votos[i];
             contador[voto - 1]++;
         }
-        
+        	
         int maxVotos = contador[0];
         int puertaGanadora = 1;
         

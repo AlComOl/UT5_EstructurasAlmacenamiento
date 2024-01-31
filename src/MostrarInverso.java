@@ -37,7 +37,8 @@ public class MostrarInverso {
 	public static void mostrarInverso1(int v[],int a[],int n ) {
 		/******************************************************************************
 		 * Función mostrarInverso1 invierte el vector y lo mete dentro de otro 
-		 * Necita la funcion mostrar para ver el interior del vector.
+		 * 
+			Necita la funcion mostrar para ver el interior del vector.
 		 * 
 		 ********************************************************************************/
 		int j=0;
@@ -45,14 +46,13 @@ public class MostrarInverso {
 			a[j]=v[i];
 			 j++;
 		}
-		
 	}
 	
-	public static void mostrar(int a[]) {
-		
-		for(int i=0;i<a.length;i++) {
-		 System.out.print(a[i]+" ,");
+		public static void mostrar(int a[]) {
 			
+			for(int i=0;i<a.length;i++) {
+			 System.out.print(a[i]+" ,");
+				
+			}
 		}
-	}
 }
