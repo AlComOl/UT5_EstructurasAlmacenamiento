@@ -36,11 +36,11 @@ public static void main(String[] args) {
     } while (n != 0);
 }
 
-public static void insertar(int n, int v1[], int c_pos) {
-    int i;
-    for (i = c_pos - 1; i >= 0 && v1[i] > n; i--) {
-        v1[i + 1] = v1[i];
-    }
-    v1[i + 1] = n;
-}
+		public static void insertar(int n, int v1[], int c_pos) {
+		    int i;
+		    for (i = c_pos - 1; i >= 0 && v1[i] > n; i--) {
+		        v1[i + 1] = v1[i];
+		    }
+		    v1[i + 1] = n;
+		}
 }

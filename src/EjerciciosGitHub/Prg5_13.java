@@ -34,7 +34,7 @@ public class Prg5_13 {
 		 
 		for(int i=0;i<vc.length;i++) {//votaciones
 		do {
-			System.out.println("Vota ");
+			System.out.println("Vota pueta "+i);
 			n=sc.nextInt();
 			if(n>=0&&n<=10) {
 				

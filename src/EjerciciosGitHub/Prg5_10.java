@@ -12,7 +12,7 @@ import java.util.*;
 	public class Prg5_10 {
 		public static void main (String[] args) {
 			Scanner sc=new Scanner(System.in);
-			int aux,v0=0,v1=0,v2=0,v3=0,v4=0,v5=0,v6=0,v7=0,v8=0,v9=0,v10=0;
+			int aux;//crear un vector con 10 posiciones
 			int v[]= {1,1,1,1,1,1,1,2,2,2};
 			int f[]=new int [10];
 				aux=v[v.length-1];
@@ -33,48 +33,48 @@ import java.util.*;
 			
 				switch (temp) {
 				case 0: 
-					f[i]=temp;
-					v0++;;
+					f[i++]=temp;
+					
 					break;	
 				case 1:
 					f[i]=temp;
-					v1++;
+					
 					break;
 				case 2:
 					f[i]=temp;
-					v2++;
+					
 					break;
 				case 3:
 					f[i]=temp;
-					v3++;
+				
 					break;
 				case 4:
 					f[i]=temp;
-					v4++;
+				
 					break;
 				case 5:
 					f[i]=temp;
-					v5++;
+				
 					break;
 				case 6:
 					f[i]=temp;
-					v6++;
+					
 					break;
 				case 7:
 					f[i]=temp;
-					v7++;
+				
 					break;
 				case 8:
 					f[i]=temp;
-					v8++;
+				
 					break;
 				case 9:
 					f[i]=temp;
-					v3++;
+				
 					break;
 				case 10:
 					f[i]=temp;
-					v10++;
+				
 					break;
 				
 				default:
@@ -84,9 +84,6 @@ import java.util.*;
 			
 			System.out.println("***************VECTOR CON FRECUENCIAS***************");
 		
-			for(int i=0;i<v.length;i++) {
-				for(int j=0;j<k)
-			}
 			
 			
 			
