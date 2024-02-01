@@ -35,7 +35,6 @@ public class VotacionVecinos1 {
 					}else {
 						i--;
 					}
-			
 			}
 		}
 
