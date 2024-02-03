@@ -1,8 +1,11 @@
 package EjerciciosGitHub;
 import java.util.*;
+
 /*	********************************************************************************************
- * 	Autor:Álvaro Comenge .
- * Fecha 30/01/24
+ * 	@author Álvaro Comenge
+ * 
+ * 	Fecha 3/02/24
+ * 
  *  Sobre el mismo programa anterior hacer que imprima los siguientes datos estadísticos: media aritmética, moda, mediana y desviación típica.
 	Media aritmética: cociente entre la suma de valores por su frecuencia y la suma de frecuencias.
 	Moda: valor de máxima frecuencia (puede haber más de una moda).
@@ -13,34 +16,23 @@ import java.util.*;
 		public static void main (String[] args) {
 			Scanner sc=new Scanner(System.in);
 			double media,moda,desviacion,a=0;
-			int suma=0,cont=0,mediana;
-			int aux;//crear un vector con 10 posiciones
-			int v[]= {1,2,1,1,2,1,1,1,1,2};
-			int f[]=new int [10];
-			int m[]=new int[1];
-				aux=v[v.length-1];
+			int mediana;
+			int v[]= {5,5,5,5,3,6,3,8,9,10};
+			int f[]=new int [11];
+//			
+			
 				
-				 media=obtenerMedia(v,f);
+				 media=obtenerMedia(v);
 				 moda=obtenerModa(v,f);
 				 mediana=obtenerMediana(v);
-				 desviacion=desviacionTipica(v,f,a);
-//			
+				 desviacion=desviacionTipica(v,a);
+				 
 				 System.out.println("\n La media aritmetica de los elementos del vector es "+media+
-						 "\n La moda de los elementos del del vector es :"+aux+
+						 "\n La moda de los elementos del del vector es :"+moda+
 						 "\n La media del vector es  "+mediana +
-						 "\n La desviacion del vector es "+ desviacion+
-						 "\n  Hay "+moda+" repeticiones de moda" );
-			
-			
-//			System.out.println("La media aritmetica de los elementos del vector es "+(media=(float)suma/10));
-//			System.out.println("La moda de los elementos del del vector es :"+aux);
-//			
-//			ordenarBurbuja(v);
-//			System.out.println("la Media Aritmetica del vector v es:"+obtenerMedia(v,f));	
-//			System.out.println("la Moda del vector v es:"+obtenerModa(v,f));
-//			System.out.println("la Media Aritmetica del vector v es:"+obtenerMediana(v));
-//			System.out.println("la Media Aritmetica del vector v es:"+desviacionTipica(v,f,a));
-
+						 "\n La desviacion del vector es "+ desviacion);
+				 mostrarRepModa(f);
+				 sc.close();
 		}
 		
 		
@@ -49,8 +41,8 @@ import java.util.*;
 				
 			/***********************************************************
 			 * 
-			 * Álvaro Comenge
-			 * 
+			 * @author Álvaro Comenge
+			 * @param v[] vector de elementos 
 			 * Metodo : Ordenacion vector (Burbuja)
 			 * 
 			 ***********************************************************/
@@ -70,100 +62,102 @@ import java.util.*;
 			
 			
 			
-			public static double obtenerMedia(int v[], int f[]) {
+			public static double obtenerMedia(int v[]) {
 				/*******************************************************
-				 * Autor: Álvaro Comenge
+				 * @author Álvaro Comenge
 				 * 
 				 * Método:Media aritmética: cociente entre la suma de 
 				 * valores por su frecuencia y la suma de frecuencias. 
-				 *
 				 * 
-				 * Atención el array debe estar orenado o previamente
-				 * llamar al método ordenar.
+				 * @param v[] vector de elementos puede estar ordenado y desordenado
+				 * dentro tenemos la llamada a un metodo de ordenacion 
 				 * 
 				 ******************************************************/
 				
-				/*Obtener en el vector f un contador de frecuencia de cada valor*/
-				
-				
-				ordenarBurbuja(v);
 				int suma=0;
-				for( int i=0;i<v.length;i++) {
+				for(int i=0;i<v.length;i++) {
 					
-					int valor=v[i];//metiendo el valor de v[i] en valor
-					
-							f[valor]++;//incremento la posicion de valor en el vector f[] 
-											
-				}
-				
-				for( int i=0;i<v.length;i++) {
-					
-					f[i]=f[i]*i;// Multiplicar cada valor por su frecuencia
+					suma=suma+v[i];
 					
 				}
 				
-				/*suma producto de las frecuencias */
-				for(int i=0;i<f.length;i++) {
-					suma+=f[i];
-				}
-				
-				
-				
-				return suma/10;
+				return suma/v.length;
 				
 			}
 			
-			
-			public static int obtenerModa(int f[], int m[]) {
+
+			public static int obtenerModa(int v[],int f []) {
 			/**********************************************	
-			 * Álvaro Comenge
+			 * @author acome
 			 * 
 			 * Metodo: Moda: valor de máxima frecuencia (puede haber más de una moda).
 			 * 
-			 * Meto el valor del contador en el vetor para despues en el main devolverlo
-			 * hay que pedir si se desea la cantidad de mosdas que hay
+			 * @param v[] vector de elementos 
+			 * @param f[] vector de frecuencias  
 			 * 
 			 ***********************************************/
-				int aux=0, cont=0;
-				int numModas = 0;
-			
-				for(int i=0;i<f.length;i++) {
-					if(f[i]>aux) {
-						aux=f[i];
-						
-					}
-					
-				}
-				// Luego buscamos las modas y las almacenamos en el vector m[]
-			    for (int i = 0; i < f.length; i++) {
-			        if (f[i] == aux) {
-			            m[numModas] = i;
-			            numModas++;
-			        }
-			
-			}
-				return aux;
-			}
-			
+			int valor,aux=0,moda=0,max=0;
 		
+			ordenarBurbuja(v);
+			
+			for(int i=0;i<v.length;i++) {
+				valor=v[i];//pos de i dentro de valor
+				
+				f[valor]++;// cada vez que sale un valor de v lo incremento en f
+			System.out.println();
+			}
+			for (int i=0;i<f.length;i++) {
+				if(f[i]>max) {
+					moda=i;
+				}
+			}
+			
+			return moda;	
+			}
+			
+			
+			public static void mostrarRepModa(int f[]) {
+				/********************************************
+				 * @Alvaro
+				 * 
+				 * @param f para mostrar si hay mas modas  
+				 * 
+				 * 
+				 * ******************************************/
+				int i=0;
+				System.out.println(" \n  Las frecuencias de cada elementos son");
+				for( i=0;i<f.length;i++) {
+				
+				System.out.println("\n   El numero "+i+" se repite "+f[i]);
+				
+						
+				
+					
+					}
+			}
+			
 			public static int  obtenerMediana(int v[]) {
 				/*******************************************************
-				 * Autor: Álvaro Comenge
+				 * @author Álvaro Comenge
 				 * 
 				 * Método Mediana: valor que tiene igual número de valores 
 				 * superiores que inferiores.
 				 * 
-				 * Atención el array debe estar orenado o previamente
-				 * llamar al método ordenar.
+				 * @param v el array de elementos 
+				 * 
+				 * El array debe estar ordenado llamamos al metodo ordenarBurbuja 
+				 * para ordenar el array.
 				 * 
 				 ******************************************************/
+				ordenarBurbuja(v);
+				
 				int res=0;
 				if(v.length%2!=0) {
 					
 					res=v.length/2;
 					
 				}else {
-					int sum=v[v.length/2]+v[(v.length/2)-1];
+					int sum=v[v.length/2]+v[(v.length/2)+1];
 					res=sum/2;
 				}
 				return res;
@@ -171,9 +165,9 @@ import java.util.*;
 			
 			
 			
-			public static double desviacionTipica(int v[],int f[],double a) {
+			public static double desviacionTipica(int v[],double a) {
 				/*******************************************************
-				 * Autor: Álvaro Comenge
+				 * @author Álvaro Comenge
 				 * 
 				 * Método:Desviación típica: variación del conjunto de 
 				 * valores respecto al valor medio..
@@ -182,24 +176,18 @@ import java.util.*;
 				 * llamar al método ordenar.
 				 * 
 				 ******************************************************/
-				/*llamo a media Aritmetica y la meto en media*/
-				double media,suma = 0;
-				media=obtenerMedia(v,f);
+				
+				double suma=0;
 				/*Resto la media a cada valor del vector*/
 				
 				for(int i=0;i<v.length;i++) {
-					suma+=Math.pow(v[i]-media, 2);
+//					 se encarga de calcular el cuadrado de la diferencia entre el valor de v[i] 
+//					 y la media  de todo el conjunto de datos obtenerMedia(v)
+					suma+=Math.pow(v[i]-obtenerMedia(v), 2);
 				}
-				a=suma;
 				
-				
-				
-				return a;
-			}
-			
-			
-			
-		
+				return suma;
+			}	
 	}
 	
 
