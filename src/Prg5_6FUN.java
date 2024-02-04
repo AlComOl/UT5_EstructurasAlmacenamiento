@@ -28,28 +28,15 @@ public class Prg5_6FUN {
 			}
 			sc.close();
 		}
-		
-		
-		
-//		public static boolean capicua(int v[],int t) {
-//		/*********************************************
-//		 * @author acome
-//		 * Metodo capicua:Encuantra si el numero es capicua
-//		 * @param v[]=vector con t de tamaño
-//		 * @param t es el tamaño  del vector
-//		 *
-//		 *********************************************/
-//			int i,j;
-//			boolean numCapi=true;
-//			for(i=0,j=t-1;i<j;i++,j--) {
-//				if(v[i]!=v[j])
-//				numCapi=false;
-//		
-//			}
-//			return numCapi;
-//		}
-		
+	
 		public static boolean capicua(int v[],int n) {
+		/*********************************************
+		 * @author acome
+		 *	Metodo capicua:Encuantra si el numero es capicua
+		 * @param v[]=vector con t de tamaño
+		 * @param t es el tamaño  del vector
+		 *
+		 *********************************************/
 			int i,j;
 			boolean numCapi=true;
 			for(i=0,j=n-1;i<j&&numCapi==true;i++,j--) {
