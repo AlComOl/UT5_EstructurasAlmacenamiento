@@ -9,18 +9,19 @@ import java.util.*;
  * ************************************************************************/
 
 
-public class Ejemplo {
+public class Ejercicio1Consolidacion {
 
 	public static void main(String[] args) {
 
 		int[][] m = new int [5] [3];//previamente creamos la matriz de 5x10
 	
-	
+//		int m [][] ={ {15,2,3},{5,-6,7},{9,10,11},{13,14,30}};
+		
 		leerMatriz(m);
 		
 		mostrarMatriz(m);
 		
-		System.out.println("Numero Mayor "+mostrarMayor(m)+" Numero Menor"+mostrarMenor(m));
+		System.out.println("Numero Mayor "+ObtenerMayor(m)+" Numero Menor"+ObtenerMenor(m));
 		
 
 	
@@ -41,14 +42,15 @@ public class Ejemplo {
 				 ****************************************/
 				
 				Scanner sc=new Scanner(System.in);
+				int columna=0;
 				
 				for(int fila=0;fila<m.length;fila++) {
 					
-					System.out.println("Nueva fila");
+					System.out.println("Nueva fila "+ fila);
 					
-					for (int columna = 0; columna < m[fila].length; columna++) {
+					for ( columna = 0; columna < m[fila].length; columna++) {
 						
-					System.out.println("Introduce valores de la columna");
+					System.out.println("Introduce valores de la columna "+ columna);
 					
 						m[fila] [columna]=sc.nextInt();
 					}
@@ -73,12 +75,12 @@ public class Ejemplo {
 			    	  System.out.print(m[fila][columna]+" ");
 			    	  
 			       }
-			       System.out.print("]  ");
+			       System.out.print("]  \n");
 			    }
 			}
 			
 			
-			public static int mostrarMayor(int m[] []) {
+			public static int ObtenerMayor(int m[] []) {
 				/**************************************
 				 * @author acome
 				 * @param m[] matriz
@@ -86,7 +88,7 @@ public class Ejemplo {
 				 * Muestra el numero mayor de la matriz
 				 ****************************************/
 				
-				int myr=0;
+				int myr=m[0][0];
 				
 				for(int fila=0;fila<m.length;fila++) {
 					
@@ -102,20 +104,20 @@ public class Ejemplo {
 			}
 	
 			
-			public static int  mostrarMenor(int m[] []) {
+			public static int  ObtenerMenor(int m[] []) {
 				/**************************************
 				 * @author acome
 				 * @param m[] matriz
 				 * 
 				 * Muestra el numero menor de la matriz
-				 * quiero hacer unos ajustes para 
-				 * que aparezca la posición del la fila 
-				 * y la columna y en la variable mnr
+				 * 
+				 * 
 				 ****************************************/
+				int mnr =m[0][0];
 				
-				int mnr=1000000;
 				
-				
+			
+								
 				for(int fila=0;fila<m.length;fila++) {
 					
 					for(int columna=0;columna<m[0].length;columna++) {
@@ -125,8 +127,6 @@ public class Ejemplo {
 							mnr=m[fila][columna];
 							
 						}
-						
-						
 					}
 				}
 				
