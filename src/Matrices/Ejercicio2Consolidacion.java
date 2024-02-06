@@ -1,6 +1,13 @@
 package Matrices;
 
 import java.util.Scanner;
+/*******************************************************************
+ * @author acome
+ * 
+ * Ejercicios consolidacion2 Progrmacion 5/2/24
+ * 
+ * 
+ ********************************************************************/
 
 public class Ejercicio2Consolidacion {
 
@@ -8,7 +15,7 @@ public class Ejercicio2Consolidacion {
 
 //		int m[][]=new int [4][4];
 		
-		int m [][] ={ {1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}}; 
+		int m [][] ={ {1,2,3},{5,6,7},{9,10,11},{13,14,15}}; 
 		
 		Scanner sc=new Scanner(System.in);
 		
@@ -24,28 +31,28 @@ public class Ejercicio2Consolidacion {
 //			}
 //			
 //		}
-		System.out.println("*****************************************");
-			System.out.println(intercambiaFilas(m,4,4,0,1));
-		System.out.println("******************************************");
+		System.out.println("***************Intercabio*******************");
+			System.out.println(intercambiaFilas(m,4,3,0,1));
+		System.out.println("*****************Resultado******************");
 			mostrarMatriz(m);
-		System.out.println("******************************************");
-			muestraEsquinas(m,4,4);
-		System.out.println("******************************************");
-		muestraEsquinas1(m,4,4);
+		System.out.println("****************Esquinas******************");
+			muestraEsquinas(m,4,3);
+		System.out.println("****************Esquinas fila 0 y 3******************");
+		muestraEsquinas1(m,4,3);
 		
 		
 	}
 	
 	
 		public static boolean intercambiaFilas(int matrix[][],int m,int n,int f1, int f2) {
-			/*****************************************************************************
-			 * @author acome
-			 * 
-			 * lñ
-			 * 
-			 * 
-			 *****************************************************************************/
-			int aux=0;
+		/*****************************************************************************
+		 * @author acome
+		 * 
+		 * 
+		 * 
+		 * 
+		 *****************************************************************************/
+		int aux=0;
 			boolean rdo=true;
 			if(f1<m&&f2<m) {
 			
@@ -69,13 +76,13 @@ public class Ejercicio2Consolidacion {
 		
 		
 		public static void mostrarMatriz(int m[] []) {
-			/**************************************
-			 * @author acome
-			 * @param m[] matriz
-			 * 
-			 * Muestra valores a la matriz que 
-			 * pasamos por parametro
-			 ****************************************/
+		/**************************************
+		 * @author acome
+		 * @param m[] matriz
+		 * 
+		 * Muestra valores a la matriz que 
+		 * pasamos por parametro
+		 ****************************************/
 		   
 		    for (int fila = 0; fila < m.length; fila++) {
 		    	 System.out.print(" [");
@@ -91,7 +98,8 @@ public class Ejercicio2Consolidacion {
 		/******************************************************************
 		 * @author acome
 		 * 
-		 * Muestra los numeros de las esquinas los demas pone un Arterisco
+		 * Muestra los numeros de las esquinas de la matriz los demas pone
+		 *  un Arterisco
 		 * 
 		 ******************************************************************/
 			
@@ -115,7 +123,8 @@ public class Ejercicio2Consolidacion {
 			/******************************************************************
 			 * @author acome
 			 * 
-			 * Muestra los numeros de las esquinas los demas pone un Arterisco
+			 * Muestra los numeros de las esquinas de la primera y ultima fila 
+			 * los demas pone un Arterisco
 			 * 
 			 ******************************************************************/
 				
