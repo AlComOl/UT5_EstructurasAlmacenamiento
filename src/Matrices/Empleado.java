@@ -1,4 +1,11 @@
 package Matrices;
+/************************************************************
+ * @author acome
+ * 
+ * Consolidacion 5 POO
+ * 
+ * clase Empleado
+ ***********************************************************/
 
 import java.util.Scanner;
 
@@ -16,7 +23,7 @@ public class Empleado {
 			
 		}
 		
-		public Empleado(String nombre) {
+		public Empleado(String nombre) {//constructor parametrizado
 			
 			this.nombre=nombre;
 			this.sueldo = new double [N];
@@ -39,7 +46,7 @@ public class Empleado {
 			this.nombre = nombre;
 		}
 
-		public double[] getSueldo() {
+		public double[] getSueldo() {//pasamos el array sueldos
 			return sueldo;
 		}
 
