@@ -1,5 +1,12 @@
 package PeliculaColeccion;
-
+/***********************************************************************************
+ * @author Álvaro Comenge
+ * 
+ * @echa:9/02/24
+ * 
+ * @category ArrayDePelículas
+ * 
+ * ********************************************************************************/
 public class Coleccion {
 	
 	 private Pelicula [] peliculas ;

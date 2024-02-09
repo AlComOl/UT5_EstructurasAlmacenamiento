@@ -1,7 +1,14 @@
 package PeliculaColeccion;
 
-import java.io.PrintStream;
-
+//import java.io.PrintStream;
+/***********************************************************************************
+ * @author Álvaro Comenge
+ * 
+ * @echa:9/02/24
+ * 
+ * @category ArrayDePelículas
+ * 
+ * ********************************************************************************/
 public class testPelicula {
 
 	public static void main(String[] args) {

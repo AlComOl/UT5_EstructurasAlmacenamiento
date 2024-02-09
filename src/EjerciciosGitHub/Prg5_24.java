@@ -5,13 +5,17 @@ import java.util.Scanner;
 public class Prg5_24 {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		final int N=5;
+		final int N=3;
 		
 		int m1[][]=new int [N][N];
 		int m2[][]=new int [N][N];
-		int suma[][]=new int [N][N];
+		int mult[][]=new int [N][N];
 		
-		leerMatriz();
+		leerMatriz(m1);
+		leerMatriz(m2);
+		multiplicaMatriz(m1,m2,mult);
+		
+		mostrarMatriz(mult);
 		
 		
 		
@@ -60,13 +64,13 @@ public class Prg5_24 {
 					if(m1.length==m2.length&&m1[0].length==m2[0].length) {
 						ok=true;
 						
-						for(int i=0;i<m1.length;i++) {
-							for(int j=0;i<m1.length;j++) {
+						for(int i=0;i<m1.length;i++) {//maneja filas 
+							for(int j=0;j<m2[0].length;j++) {//maneja columnas
 								for(int k=0;k<mult.length;k++) {
-									mult[i][j]=m1[i][j]+m2[i][k];
+									mult[i][j]+=m1[i][k]*m2[k][j];
 								}
 								
-							}
+				}
 						}
 					}else {
 						
@@ -89,7 +93,7 @@ public class Prg5_24 {
 				 * Muestra valores a la matriz que 
 				 * pasamos por parametro
 				 ****************************************/
-			   
+			   System.out.println("La matriz resultaria: ");
 			    for (int fila = 0; fila < m.length; fila++) {
 			    	 System.out.print(" [");
 			       for(int columna=0;columna<m[fila].length;columna++) {

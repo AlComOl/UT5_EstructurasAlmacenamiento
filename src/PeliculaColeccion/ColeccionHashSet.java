@@ -1,5 +1,13 @@
 package PeliculaColeccion;
  import java. util .HashSet;
+ /***********************************************************************************
+  * @author Álvaro Comenge
+  * 
+  * @echa:9/02/24
+  * 
+  * @category ArrayDePelículas
+  * 
+  * ********************************************************************************/
  
 public class ColeccionHashSet {
 
