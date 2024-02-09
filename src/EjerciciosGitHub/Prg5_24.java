@@ -1,5 +1,13 @@
 package EjerciciosGitHub;
-
+/*****************************************************************
+ * 	@author Álvaro Comenge
+ * 
+ * 	@Fecha:9/09/24
+ * 
+ * 	Multiplica dos matrices de la misma dimensión.
+ *  C(i, j) = SUMATORIO (k=1..N) A(i, k) + B(k, j). 
+ *  
+ *****************************************************************/
 import java.util.Scanner;
 
 public class Prg5_24 {
@@ -69,8 +77,7 @@ public class Prg5_24 {
 								for(int k=0;k<mult.length;k++) {
 									mult[i][j]+=m1[i][k]*m2[k][j];
 								}
-								
-				}
+							}
 						}
 					}else {
 						
@@ -88,7 +95,7 @@ public class Prg5_24 {
 			public static void mostrarMatriz(int m[] []) {
 				/**************************************
 				 * @author acome
-				 * @param m[] matriz
+				 * @param m[] [] matriz
 				 * 
 				 * Muestra valores a la matriz que 
 				 * pasamos por parametro
