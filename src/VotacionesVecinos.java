@@ -4,7 +4,7 @@ import java.util.*;
  * 
  * Votaciones a la comunidad de vecinos
  * 
- * fefcha: 31/01/2024
+ * fecha: 31/01/2024
  ***********************************************************************/
 
 public class VotacionesVecinos {

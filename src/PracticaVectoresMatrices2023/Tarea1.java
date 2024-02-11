@@ -1,4 +1,8 @@
 package PracticaVectoresMatrices2023;
+/********************************************
+ * @autor Practica2023
+ * Fecha 11/02/2024
+ * *****************************************/
 import java.util.*;
 public class Tarea1 {
 	
@@ -7,49 +11,69 @@ public class Tarea1 {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 	
-		int v1[]= {2,4,6,8,10,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0};//tamaño 20
-		int n,n1,n2=0,c_pos=6;//siendo 6-1(5) las posiciones ocupadas del vector
+		double v1[]= {2,4,6,8,10,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0};//tamaño 20
+		int n,n1,c_pos=6;//siendo 6-1(5) las posiciones ocupadas del vector
+		double n2=0,n3=0,a=0;
 		
 		
 //		menu
 		do {
 		System.out.println(
 					       "\n 1.- introducir un elemento en el vector: "
-						  +"\n 2.- buscar un elemento"+
-						  "\n Elige opcion");
+					      +"\n 2.- buscar un elemento"
+					      +"\n 3.- eliminar un elemento del vector"
+					      +"\n 4.- muestra el vector y el número de elementos del vector"
+					      +"\n 5.- muestra la media aritmética de todos sus elementos"
+					      +"\n 6-. muestra la desviación estándar"
+					      +"\n 7.- modificar un elemento dado del vector"
+//					      Me falta hacer el punto 7 porque no lo tengo claro 
+//					      creo que llamando al metodo buscar inseratar u ordenar burbuja se podria hacer 
+
+					      +"\n Elige opcion");
 		
 		
 							n=sc.nextInt();
 		switch (n) {
-		case 1: 
+		case 1:
+			System.out.println("Introduce elemento");
+			n2= sc.nextDouble();
+			c_pos++;
 			
-			System.out.println("Ordenar valor en el vector");
-			n2=sc.nextInt();
-			if(c_pos>v1.length) {
-				
-				System.out.println("El vector está lleno");
-			
-			}else {
-			System.out.println(insertar(n2,v1));
-				c_pos++;
-				
-				for(int i=0;i<20;i++) {
-					
-					System.out.print(v1[i]+" ,");
-				}	
-			
-			}
-			
-	
+		System.out.println(insertar(v1,c_pos,n2));
+		System.out.println(c_pos);
 		
 		case 2: {
-			
-			
+			System.out.println("Introduce el numero a buscar");
+			double dato= sc.nextDouble();
+			int res=buscar(v1,c_pos,dato);
+			System.out.println(res);
 		}
 		case 3: {
+			System.out.println("Introduce el elemento a eliminar");
+			int eliminar= sc.nextInt();
+			int buscado=buscar(v1,c_pos,eliminar);
+			if(buscado==1) {
+			System.out.println(eliminar(v1,n));
+			}else {
+				System.out.println("El numero no esta en el vector");
+			}
+		}
+		case 4:{
+			mostrarVector(v1);
+			
 			
 			
 		}
+		case 5:{
+			double media=mediaAritmetica(v1);
+			System.out.println(media);
+		}
+		case 6:{
+			
+		System.out.println("La desviacion estandar es :"+desviacionTipica(v1,a));	
+		}
+			
+			
 		default:
 			
 		}
@@ -58,37 +82,154 @@ public class Tarea1 {
 		
 		
 	}
-//	FUNCION DE INSERTAR VALOR *me falta hacer que si el valor es mayor que el mayor del vector lo insete
-	public static boolean insertar(int n, int v1[]) {
-		int aux=0,cont=0;
-		boolean insert=false;
-		while(cont<20&&v1[cont]<n) {//encontramos la posicion donde va el numero
-			
-			cont++;
-			
-		}
-		  if (cont == v1.length) {
-		        System.err.println("El vector está lleno");
+
+	public static boolean insertar(double v[], int n, double elemento) {
 		
-			for(int i=18;i>=cont;i--){//he cambiado la n habia un 18 
-			
-				v1[i+1]=v1[i];
-			
+		boolean	insert=true;
+		double aux=0;
+		if(n<v.length) {
+			for(int i=0;i<n;i++) {
+				aux=v[i];
+				int j=i;
+				while(j>0&&aux<v[j-1]) {
+					v[j]=v[j-1];
+					j--;
+				}
+					v[j]=aux;
 			}
-		
-			v1[cont]=n;
-			insert=true;
-	
+		}else {
+			insert=false;
 		}
+		
+	   
+		
 		return insert;
 	}
 
 	
 //	FUNCION DE BUSCAR ELEMENTO
-	public static int buscar(double v1[],int n, double dato) {
+	public static int buscar(double [] v, int n, double dato) {
+			int rdo=-1;
+			boolean encontrado=false;
+		for(int i=0;i<v.length&&encontrado==false;i++) {
+			if(v[i]==dato) {
+				encontrado=true;
+				rdo=1;
+			}
+			n=i;
+		}
 		
-		
-		return n;
+		return rdo;
 		
 	}
+	
+	public static int eliminar(double [] v, int posicion) {
+		int eliminado;
+		v[posicion]=0;
+		if(posicion==0) {
+			 eliminado=1;
+		}else {
+			eliminado=-1;
+		}
+		return eliminado;
+	}
+	
+	public static void mostrarVector(double v[]) {
+		int i, elementos=0;
+		for(i=0;i<v.length-1;i++) {
+			System.out.print(v[i]+" ,");	
+		}
+		System.out.print(v[i]);
+		for(int j=0;j<v.length;j++) {
+			if(v[j]>0) {
+				elementos++;
+			}	
+		}
+		System.out.println("\n El numero de elementos del vector es "+ elementos);
+	}
+	
+	
+	public static double mediaAritmetica(double v[]) {
+		int i,suma=0,media;
+		for( i=0;i<v.length;i++) {
+			suma+=v[i];
+		}
+		media=suma/i;
+	
+		return media ;
+	}
+	
+	
+	public static void ordenarBurbuja(double v[]) {
+		
+		/***********************************************************
+		 * 
+		 * @author Álvaro Comenge
+		 * @param v[] vector de elementos 
+		 * Metodo : Ordenacion vector (Burbuja)
+		 * 
+		 ***********************************************************/
+			double aux=0;
+			for(int i=0; i<v.length-1;i++) {
+				for(int j=v.length-1;j>i;j--) {
+					if(v[j-1]>v[j]) {
+						aux=v[j-1];
+						v[j-1]=v[j];
+						v[j]=aux;
+						
+					}
+				}
+			}
+		}	
+	
+	public static double  obtenerMediana(double v[]) {
+		/*******************************************************
+		 * @author Álvaro Comenge
+		 * 
+		 * Método Mediana: valor que tiene igual número de valores 
+		 * superiores que inferiores.
+		 * 
+		 * @param v el array de elementos 
+		 * 
+		 * El array debe estar ordenado llamamos al metodo ordenarBurbuja 
+		 * para ordenar el array.
+		 * 
+		 ******************************************************/
+		ordenarBurbuja(v);
+		
+		double res=0;
+		if(v.length%2!=0) {
+			
+			res=v.length/2;
+			
+		}else {
+			double sum=v[v.length/2]+v[(v.length/2)+1];
+			res=sum/2;
+		}
+		return res;
+	}
+	public static double desviacionTipica(double v[],double a) {
+		/*******************************************************
+		 * @author Álvaro Comenge
+		 * 
+		 * Método:Desviación típica: variación del conjunto de 
+		 * valores respecto al valor medio..
+		 * 
+		 * Atención el array debe estar orenado o previamente
+		 * llamar al método ordenar.
+		 * 
+		 ******************************************************/
+		
+		double suma=0;
+		/*Resto la media a cada valor del vector*/
+		
+		for(int i=0;i<v.length;i++) {
+//			 se encarga de calcular el cuadrado de la diferencia entre el valor de v[i] 
+//			 y la media  de todo el conjunto de datos obtenerMedia(v)
+			suma+=Math.pow(v[i]-obtenerMediana(v), 2);
+		}
+		
+		return suma;
+	}	
+	
 }
