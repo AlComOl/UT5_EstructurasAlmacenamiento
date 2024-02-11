@@ -9,7 +9,7 @@ import java.util.*;
  *  permutando la fila 0 por la 1.
  * 
  * **************************************************/
-public class Prg_5_21 {
+public class Prg5_21 {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -22,10 +22,16 @@ public class Prg_5_21 {
 	}
 
 	public static void permuta1x3(int v[][]) {
+	/*****************************************
+	 * @author @author acome
+	 * @param v[][] matriz regular
+	 * 
+	 * permuta fila 1 por la 3 
+	 *****************************************/
 		int temp[]=v[0];
 		
-		v[0]=v[2];
-		v[2]=temp;
+		v[0]=v[1];
+		v[1]=temp;
 		
 		}
 		

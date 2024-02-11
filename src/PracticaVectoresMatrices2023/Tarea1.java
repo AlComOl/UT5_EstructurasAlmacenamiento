@@ -13,7 +13,7 @@ public class Tarea1 {
 	
 		double v1[]= {2,4,6,8,10,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0};//tamaño 20
 		int n,n1,c_pos=6;//siendo 6-1(5) las posiciones ocupadas del vector
-		double n2=0,n3=0,a=0;
+		double n2=0,n3=0,a=0, buscado;
 		
 		
 //		menu
@@ -38,41 +38,54 @@ public class Tarea1 {
 			System.out.println("Introduce elemento");
 			n2= sc.nextDouble();
 			c_pos++;
+			if(c_pos<20) {
 			
-		System.out.println(insertar(v1,c_pos,n2));
-		System.out.println(c_pos);
-		
+				System.out.println(insertar1(v1,c_pos,n2));
+				
+			}else {
+				System.out.println("vector lleno de elementos");
+			}
+		break;
 		case 2: {
 			System.out.println("Introduce el numero a buscar");
 			double dato= sc.nextDouble();
 			int res=buscar(v1,c_pos,dato);
 			System.out.println(res);
 		}
+		break;
 		case 3: {
 			System.out.println("Introduce el elemento a eliminar");
-			int eliminar= sc.nextInt();
-			int buscado=buscar(v1,c_pos,eliminar);
-			if(buscado==1) {
-			System.out.println(eliminar(v1,n));
+			double eliminar= sc.nextInt();
+			 buscado=buscar(v1,c_pos,eliminar);
+			if(buscado>=0) {
+			System.out.println(eliminar(v1,buscado));
 			}else {
 				System.out.println("El numero no esta en el vector");
 			}
 		}
+		break;
 		case 4:{
 			mostrarVector(v1);
 			
 			
 			
+		break;
 		}
 		case 5:{
 			double media=mediaAritmetica(v1);
 			System.out.println(media);
+		break;	
 		}
 		case 6:{
 			
 		System.out.println("La desviacion estandar es :"+desviacionTipica(v1,a));	
+		break;
 		}
-			
+		case 7:
+		System.out.println("Cual es el elemento que quieres modificar");
+		double dModificar=sc.nextDouble();
+		 buscado=buscar(v1,c_pos,dModificar);
+		 
 			
 		default:
 			
@@ -83,58 +96,127 @@ public class Tarea1 {
 		
 	}
 
-	public static boolean insertar(double v[], int n, double elemento) {
-		
-		boolean	insert=true;
-		double aux=0;
-		if(n<v.length) {
-			for(int i=0;i<n;i++) {
-				aux=v[i];
-				int j=i;
-				while(j>0&&aux<v[j-1]) {
-					v[j]=v[j-1];
-					j--;
-				}
-					v[j]=aux;
-			}
-		}else {
-			insert=false;
-		}
+	public static boolean insercionDirecta(double v[], int n, double elemento) {
+	/**************************************************************************	
+	 * Este bucle lo que hace es ordenar los elementos NO INSERTA ELEMENTOS
+	 * ahora si antes no
+	 * ************************************************************************/
+		boolean insert = true;
+	    if (n < v.length) {
+	        v[n] = elemento; // Lo inserto al final de los elementos
+	        n++; // Incrementar el contador de elementos en el vector
+	        double aux;
+	        for (int i = 0; i < n; i++) {
+	            aux = v[i];//guardo el elemento que estoy comparando con los demás
+	            int j = i;
+	            while (j > 0 && aux < v[j - 1]) {//Mientras el aux que es 1 elemento
+	            								 //sea menor que el anterior [j-1]
+	            								 //desplazo elementos para delantev[j] = v[j - 1];
+	                v[j] = v[j - 1];
+	                j--;
+	            }
+	            v[j] = aux;
+	        }
+	    } else {
+	        insert = false;
+	    }
+	    return insert;
+	}
 		
 	   
 		
-		return insert;
-	}
-
 	
+	
+	public static boolean insertar1(double v[], int nElementos, double elemento) {
+	/************************************************************************
+	 * @author acome
+	 * @param double v[] vector
+	 * @param int nElementos
+	 * @param double elemento
+	 * 
+	 * insercion de un elementos en una posicion especifica
+	 * 
+	 * ************************************************************************/
+		int  posicion=0;
+		boolean introducido=false;
+				while(posicion<nElementos&&v[posicion]<elemento) {//encuentra el lugar del numero(posicion)
+			//	Miestras la posicion es menor que el nElementos
+			//y posicion menor que elemeto repite bucle	aumentando el contador
+						posicion++;
+					
+					}
+						for(int i=nElementos;i>posicion;i--) {//ndados menor que la posicion 
+							v[i]=v[i-1];
+			//metemos i-1 en i que es 1 posicion mas, de manera que empujamos todos los valores 1 posicion
+						}
+						v[posicion]=elemento;//metemos el numero
+						introducido=true;
+			
+						
+						
+						return introducido;
+	}
 //	FUNCION DE BUSCAR ELEMENTO
 	public static int buscar(double [] v, int n, double dato) {
+	/**********************************************************
+	 * @author acome
+	 * @param double v[] vector
+	 * @param int n numero de elementos del vector c_pos
+	 * @param double dato a buscar
+	 * 
+	 * Busca el dato que pasamos por la funcion
+	 * 
+	 * devuelve -1 si no lo encuentra o la posicion del elemento(i)  
+	 * 
+	 * *********************************************************/
 			int rdo=-1;
 			boolean encontrado=false;
 		for(int i=0;i<v.length&&encontrado==false;i++) {
 			if(v[i]==dato) {
 				encontrado=true;
-				rdo=1;
+				rdo=i;
 			}
-			n=i;
+			
 		}
 		
 		return rdo;
 		
 	}
 	
-	public static int eliminar(double [] v, int posicion) {
+	public static int eliminar(double [] v, double posicion) {
+	/******************************************************
+	 * @author acome
+	 * @param double [] v
+	 * @param int posicion 
+	 * 
+	 * 
+	 * Elimina el elementos del vector pasando la posicion 
+	 * donde esta 
+	 * 
+	 *******************************************************/
 		int eliminado;
-		v[posicion]=0;
+		v[(int) posicion]=0;
 		if(posicion==0) {
-			 eliminado=1;
+			 eliminado=-1;
 		}else {
-			eliminado=-1;
+			eliminado=1;
 		}
 		return eliminado;
 	}
 	
+	
+	
+	
 	public static void mostrarVector(double v[]) {
+	/*************************************************	
+	 * @author acome
+	 * @param double v[]
+	 * 
+	 * Muestra el vector y el numero de elementos que 
+	 * hay en el.
+	 * 
+	 * ***********************************************/
+	
 		int i, elementos=0;
 		for(i=0;i<v.length-1;i++) {
 			System.out.print(v[i]+" ,");	
