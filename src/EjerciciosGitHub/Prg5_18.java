@@ -1,11 +1,11 @@
 package EjerciciosGitHub;
-
+import java.util.*;
 import java.util.Random;
 
 /*****************************************************************************************
  * @author acome
  * 
- * @fecha 12/02/24
+ * @fecha 13/02/24
  * 
  * Realizar un programa que controle el sorteo de la lotería primitiva. Para simplificar
  * el programa, la combinación ganadora sólo constará de 3 números, y no hay ni reintegros 
@@ -42,46 +42,63 @@ public class Prg5_18 {
 			aciertosBoleto(sorteo,ganador);
 
 	}
-	
+//CODIGO DE LA PIZARRA EMILIANO 	
 		public static void matrizBoletos(int boleto[], int sorteo[][]) {
 			Random random=new Random();
 			
 			for(int i=0;i<sorteo.length;i++) {	
-				for(int j=0;j<sorteo[0].length;j++) { 
-					 sorteo[i][j]=generarBoletos(boleto);
+				for(int j=0;j<sorteo[i].length;j++) { 
+					int  numeroAlatorio=random.nextInt(10);
+					 boolean repetido=false;
+					 while(repetido==false) {
+						 
+						 for (int m=0;m<j&& repetido==true;m++) {
+							 
+							 if(sorteo[i][m]==numeroAlatorio) {
+								 repetido=true;
+							 }
+						 }
+						 if(repetido=true)
+							 sorteo[i][j]=numeroAlatorio;
+						 else {
+							 numeroAlatorio=random.nextInt(10);
+							 repetido=false;
+						 }
+					 }
 				}
 			}
 		}
 		
-		
-		public static int generarBoletos(int boleto[]) {
+
+		public static int generarBoletos() {
 			Random random=new Random();	
 			return random.nextInt(10);
 		}
 		
 		public static void generarGanador(int ganador[] ) {
 			for(int i=0;i<ganador.length;i++) {
-			 ganador[i]=generarBoletos(ganador);
+			 ganador[i]=generarBoletos();
 			}
 		}
 		
 		public static void aciertosBoleto(int sorteo[][], int ganador[]) {
-			
-			for(int i=0;i<sorteo.length;i++) {
-				int aciertos=0;
-
-				
-				for(int j=0;j<sorteo[0].length;j++) {
-					
-					
-					if(sorteo[i][j]==ganador[j]) {
-						aciertos++;
-					}
-				
-				}
-				System.out.println("\n El boleto "+ i+" tiene acierto "+aciertos);
-			}
+		    for (int i = 0; i < sorteo.length; i++) {
+		        int aciertos = 0;
+		        boolean numerosEncontrados[] = new boolean[ganador.length]; // Para rastrear los números del boleto ganador encontrados en el sorteo actual
+//		        No he podido poner la condicion del boleano en los bucles for
+		        for (int j = 0; j < sorteo[0].length; j++) {
+		            for (int k = 0; k < ganador.length; k++) {
+		                if (sorteo[i][j] == ganador[k] && !numerosEncontrados[k]) { // Verifica si el número del sorteo coincide con el número del boleto ganador y no ha sido encontrado antes
+		                    aciertos++;
+		                    numerosEncontrados[k] = true; // Marca el número del boleto ganador como encontrado
+		                }
+		            }
+		        }
+		        System.out.println("\n El boleto " + i + " tiene acierto " + aciertos);
+		    }
 		}
+		        
+		       
 		
 	
 		
