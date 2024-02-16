@@ -1,6 +1,6 @@
-package Practica14224Alvaro;
+package Practica140224;
 import java.util.*;
-
+import java.util.Arrays;
 import java.util.Random;
 /********************************************************************
  * @author Álvaro Comenge
@@ -16,10 +16,10 @@ public class Tarea1 {
 
 	
 		 
-		        Scanner scanner = new Scanner(System.in);
+		        Scanner sc = new Scanner(System.in);
 		        Random random = new Random();
 		        
-		        char continuar;
+		        String continuar;
 		        
 		        do {
 		            int num1[] = generarNumeroAleatorio(random);
@@ -32,11 +32,12 @@ public class Tarea1 {
 //		         
 		            mostrarsuma(suma);
 		            
-		            System.out.println("¿Desea continuar? (s/n)");	           
-		           continuar = scanner.next().charAt(0);//lo hago con char para no tener problemas con el next line
-		        } while (continuar == 's');
+		            System.out.println("Desea continuar? (s/n)");	           
+		           continuar = sc.nextLine();//lo hago con char para no tener problemas con el next line
+		           
+		        } while (continuar.equalsIgnoreCase("s"));
 		        
-		        scanner.close();
+		        
 		    }
 		    
 		    public static int[] generarNumeroAleatorio(Random random) {
@@ -45,7 +46,7 @@ public class Tarea1 {
 		    	 * 
 		    	 * Genera un numero random pasandole random
 		    	 * 
-		    	 * Numeros aleatorios de 0 a 9
+		    	 * Números aleatorios de 0 a 9
 		    	 ******************************************************/
 		        int numero[] = new int[4];
 		        for (int i = 0; i < numero.length; i++) {
@@ -119,11 +120,11 @@ public class Tarea1 {
 		            acarreo = sum / 10;//el res de dicision al accareo para sumar siguiente
 		        }
 		        
-		        if (acarreo > 0) {//si mayor 0 accareo 
-		            int sumaConAcarreo[] = new int[5];
+		        if (acarreo > 0) {//si lo suma y lleva de atras(acarreo)
+		            int sumaConAcarreo[] = new int[5];//vector nuevo donde metemos el numero mas grande
 		            
-		            sumaConAcarreo[0] = acarreo;
-		            for(int i=1;i<suma.length;i++) {
+		            sumaConAcarreo[0] = acarreo;//metemos en primer lugar el res division
+		            for(int i=1;i<suma.length;i++) {// iteramos
 		            	 sumaConAcarreo[i] = suma[i-1];//el error lo tenia aqui 
 		            }
 		           
