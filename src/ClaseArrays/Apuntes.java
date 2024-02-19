@@ -25,7 +25,7 @@ public class Apuntes {
 		System.out.println("Iguales");
 		else
 		System.out.println("No iguales");
-		Arrays.fill(v3,10);
+		Arrays.fill(v3,10);//llena el array con el elemento en 2 posicion 10 
 		System.out.println(Arrays.toString(v3));
 		if (Arrays.binarySearch(v1, 6)>=0)
 		System.out.println("EStá el valor");
