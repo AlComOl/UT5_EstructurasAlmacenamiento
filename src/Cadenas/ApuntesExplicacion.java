@@ -89,7 +89,7 @@ public class ApuntesExplicacion {
 	}
         System.out.println("******************Ejemplo de cadena dividida*****************");
         
-        
+//  STRINGBUFFER       StringBuffer reverse()
 
         String strMain = "Alfa, Beta, Delta, Gamma, Sigma";
         String[] arrSplit = strMain.split(",");

@@ -10,7 +10,7 @@ package ArrayListEjercicios;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Vocabulario {
+public class Palabra1 {
 	
 	private String espanol;
 	private String ingles;
@@ -49,17 +49,43 @@ public class Vocabulario {
 	@Override
 	public String toString() {
 		StringBuilder idioma = new StringBuilder();
-		idioma.append("\n Traduccion al Espanol");idioma.append(espanol);
-		idioma.append("\n Traduccion al Ingles");idioma.append(ingles);
-		idioma.append("\n Traduccion al Frances");idioma.append(frances);
+		idioma.append("\n Traduccion al Espanol : ");idioma.append(espanol);
+		idioma.append("\n Traduccion al Ingles : ");idioma.append(ingles);
+		idioma.append("\n Traduccion al Frances : ");idioma.append(frances);
 		return idioma.toString();
 	}
-
+	
+	
+	 public static void getMenu(){
+	        System.out.println("Elige una opcion:");
+	        System.out.println("1.Añadir una palabra");
+	        System.out.println("2.Buscar una palabra en otro idioma");
+	 }
+	 
 	public static class Voca{
-		static ArrayList<Vocabulario> vocabulario=new ArrayList<Vocabulario>();
+		static ArrayList<Palabra1> vocabulario=new ArrayList<Palabra1>();
 		static Scanner sc=new Scanner(System.in); 
 		
 		public static void main(String[] args) {
+			
+//			int key=sc.nextInt();
+//			
+//			
+//			do {
+//				switch (key) {
+//				case 1: {
+//					
+//					
+//				}
+//				case 2: {
+//					
+//					
+//				}
+//				default:
+//					throw new IllegalArgumentException("Unexpected value: " + key);
+//				}
+//				
+//			}while();
 			
 			cargarDiccionario();
 			
@@ -100,7 +126,7 @@ public class Vocabulario {
 		    	System.out.println("Palabra en Frances");
 		    	frances=sc.nextLine();
 		    	
-		    	Vocabulario pa =new Vocabulario();
+		    	Palabra1 pa =new Palabra1();
 			    
 			    pa.setEspanol(espanol);
 			    pa.setIngles(ingles);
@@ -120,22 +146,25 @@ public class Vocabulario {
 		    	 * **************************************************/
 		    	boolean encontrado=false;
 		    	
-		    	for(Vocabulario Voca:vocabulario) {
+		    	for(Palabra1 Voca:vocabulario) {
 		    		
 		    		if(Voca.getEspanol().equalsIgnoreCase(palabra)&&!encontrado) {
 		    			encontrado=true;
-		    			System.out.println(Voca.ingles);
-		    			System.out.println(Voca.frances);
+//		    			System.out.println(Voca.ingles);
+//		    			System.out.println(Voca.frances);
+		    			System.out.println(Voca.toString());
 		    			
 		    		}else if(Voca.getIngles().equalsIgnoreCase(palabra)&&!encontrado) {
 		    			encontrado=true;
-		    			System.out.println(Voca.espanol);
-		    			System.out.println(Voca.frances);
+//		    			System.out.println(Voca.espanol);
+//		    			System.out.println(Voca.frances);
+		    			System.out.println(Voca.toString());
 		    			
 		    		}else if(Voca.getFrances().equalsIgnoreCase(palabra)&&!encontrado) {
 		    			encontrado=true;
-		    			System.out.println(Voca.ingles);
-		    			System.out.println(Voca.espanol);
+//		    			System.out.println(Voca.ingles);
+//		    			System.out.println(Voca.espanol);
+		    			System.out.println(Voca.toString());
 		    		
 		    		}
 		    	}
