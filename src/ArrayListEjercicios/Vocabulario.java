@@ -1,4 +1,11 @@
 package ArrayListEjercicios;
+/***************************************************************
+ * @autor Álvaro Comenge
+ * @descripcion Ejerccio Vocabulario
+ * @version ArrayList
+ * @Fecha 20-2-2024
+ * 
+ * **************************************************************/
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -62,6 +69,14 @@ public class Vocabulario {
 		}
 		
 		public static void cargarDiccionario() {
+			/*****************************************
+			 * @author acome
+			 * 
+			 * @descripcion Carga las palabras en el array list 
+			 * mediante el bucle for, de manera que cada vocbulario
+			 * tiene 3 atributos
+			 * 
+			 * ****************************************/
 			String espanol;
 		    String ingles;
 		    String frances;
@@ -95,6 +110,14 @@ public class Vocabulario {
 		    }
 		}
 		    public static void buscarTraduccion(String palabra) {
+		    	/****************************************************
+		    	 * @author acome
+		    	 * @param palabra a buscar
+		    	 * @descripcion itera con el foreach por el array entra en la 
+		    	 * condicion que cumple y muestra las otras 2 palabras 
+		    	 * si no lo cumple muestra que no esta en el diccionario.
+		    	 * 
+		    	 * **************************************************/
 		    	boolean encontrado=false;
 		    	
 		    	for(Vocabulario Voca:vocabulario) {
@@ -104,21 +127,21 @@ public class Vocabulario {
 		    			System.out.println(Voca.ingles);
 		    			System.out.println(Voca.frances);
 		    			
-		    			if(Voca.getIngles().equalsIgnoreCase(palabra)&&!encontrado) {
+		    		}else if(Voca.getIngles().equalsIgnoreCase(palabra)&&!encontrado) {
 		    			encontrado=true;
 		    			System.out.println(Voca.espanol);
 		    			System.out.println(Voca.frances);
 		    			
-		    			if(Voca.getFrances().equalsIgnoreCase(palabra)&&!encontrado) {
+		    		}else if(Voca.getFrances().equalsIgnoreCase(palabra)&&!encontrado) {
 		    			encontrado=true;
 		    			System.out.println(Voca.ingles);
 		    			System.out.println(Voca.espanol);
-		    			}
-		    			}
-		    		}else if(Voca.getFrances().equalsIgnoreCase(palabra)||Voca.getIngles().equalsIgnoreCase(palabra)||Voca.getEspanol().equalsIgnoreCase(palabra)&&!encontrado) {
-		    			System.out.println("la palabra no esta en el dicionario");
+		    		
 		    		}
-		    		}
+		    	}
+		    	if(!encontrado) {
+	    			System.out.println("la palabra no esta en el dicionario");
+	    		}
 		    		
 		    	}
 		    }
