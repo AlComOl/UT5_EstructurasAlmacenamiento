@@ -19,18 +19,24 @@ import PalabraVersionArchivos.Vocabulario;
 public class VectoresClasesPrg5_1 {
 	
 	
-	public static class Ordenador{
+	public static class Ordenador {
 		
-		public String sistemaOperativo;
-		public String memoriaRam;
-		public String almacenamiento;
-		public String puerto;
+		private static int contadorOrdenadores=0;
+		private int numeroPc;
+		
+		public  String sistemaOperativo;
+		public  String memoriaRam;
+		public  String almacenamiento;
+		public  String puerto;
 		
 		public Ordenador() {
 			
+			
+			
 		}
 		public Ordenador(String sistemaOperativo,String memoriaRam,String almacenamiento,String puerto ) {
-			
+			contadorOrdenadores++;
+			this.numeroPc=contadorOrdenadores;
 			this.sistemaOperativo=sistemaOperativo;
 			this.memoriaRam=memoriaRam;
 			this.almacenamiento=almacenamiento;
@@ -69,12 +75,22 @@ public class VectoresClasesPrg5_1 {
 			  * 
 			  * **********************************************/
 		        System.out.println("Elige una opcion:");
-		        System.out.println("1.Anadir una palabra");
-		        System.out.println("2.Buscar una palabra en otro idioma");
+		        System.out.println("1.Anadir Caracteristicas a los Ordenadores");
+		        System.out.println("2.Muestra caracteristicas de los Ordenadores");
 		        System.out.println("3.Modificar palabra");
 		        System.out.println("4.Eliminar palabra");
 		        
 		 }	 
+		 public String toString() {
+				StringBuilder caracteristicas=new StringBuilder();
+				System.out.println("Pc numero ");caracteristicas.append(numeroPc);
+				caracteristicas.append("\n Sistema Operativo : ") ;caracteristicas.append(sistemaOperativo);
+				caracteristicas.append("\n Memoria RAM : ") ;caracteristicas.append(memoriaRam);
+				caracteristicas.append("\n Almacenamiento : ") ;caracteristicas.append(almacenamiento);
+				caracteristicas.append("\n Tipo Puerto : ") ;caracteristicas.append(puerto);
+				
+			return caracteristicas.toString();
+	}
 		 
 		 
 		
@@ -93,23 +109,26 @@ public class VectoresClasesPrg5_1 {
 			 
 			 ordenador=sc.nextInt();
 			 
-			 
+
 				for(int i=0;i<ordenador;i++) {
-						System.out.println("Palabra "+i);
-				    	System.out.println("Palabra en espanol");
-				    	sistemaOperativo=sc.nextLine();
-				    	System.out.println("Palabra en Ingles");
-				    	memoriaRam=sc.nextLine();
-				    	System.out.println("Palabra en Frances");
-				    	almacenamiento=sc.nextLine();
-				    	System.out.println("Palabra en Frances");
-				    	puerto=sc.nextLine();
+						System.out.println("PC numero "+i);
+				    	System.out.println("Introduce el Sistema Operativo del Ordenador");
+				    	sistemaOperativo=sc.next();
+				    	
+				    	System.out.println("Introduce la Memoria RAM del Ordenador");
+				    	memoriaRam=sc.next();
+				    	System.out.println("Introduce el Tipo de Almacenamiento del Ordenador");
+				    	almacenamiento=sc.next();
+				    	System.out.println("Introduce el Tipo de Puerto del Ordenador");
+				    	puerto=sc.next();
 				    	//introduzco en la instancia el valor
 				    	Ordenador nuevoOrdenador =new Ordenador(sistemaOperativo,memoriaRam,almacenamiento,puerto);
 					    //por medio de add la instancia en el arraylist<palabra>
 					    NewOrdenador.add(nuevoOrdenador);
 				}
 			}
+			
+			
 		
 	}
  
@@ -117,10 +136,39 @@ public class VectoresClasesPrg5_1 {
 	public static void main(String[] args) {
 		
 		Scanner sc=new Scanner(System.in);
-		
+		int key=0;
 		Caracteristicas c=new Caracteristicas();
 		
-		Caracteristicas.cargarDatos();
+		
+		do {
+			Ordenador.getMenu();
+			 key=sc.nextInt();
+		switch (key) {
+		case 1: {
+			Caracteristicas.cargarDatos();
+			
+		}
+		break;
+		case 2: {
+		for(Ordenador ordenadores:Caracteristicas.NewOrdenador) {
+			
+		
+		
+		System.out.println(ordenadores.toString());
+		}	
+		}
+		break;
+		case 3: {
+			
+			
+		}
+		break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + key);
+		}
+		
+		}while(key!=4);
+		
 	}
 
 }

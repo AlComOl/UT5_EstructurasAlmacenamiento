@@ -24,19 +24,37 @@ public class CadenasPrg_10 {
 
 	
 	public static String aMayuscula1caracter(String cadena) {
-		StringBuilder cadenaMayusculas=new StringBuilder();
-		for(int i=0;i<cadena.length();i++) {
-			if(cadena.charAt(i)==' '){
-				 if(i+1<cadena.length()) {
-					 cadenaMayusculas.append(Character.toUpperCase(cadena.charAt(i+1)));
-				 }else {
-					 cadenaMayusculas.append(cadena.charAt(i));
-				 }
-			}
-			
-			
-		}
-		
-		return cadenaMayusculas.toString();
+		/******************************************************
+		 * @author acome
+		 * @param cadena frase que introducimos por teclado
+		 * 
+		 * @descripcion conviete las primeras letras de cada plabra 
+		 * a mayuscula 
+		 * 
+		 * 
+		 * 
+		 * ****************************************************/
+	    StringBuilder cadenaMayusculas = new StringBuilder();
+	    boolean primeraLetra = true; // Bandera para indicar si es la primera letra de una palabra
+	    
+	    for (int i = 0; i < cadena.length(); i++) {
+	        char caracterActual = cadena.charAt(i);
+	        
+	        if (primeraLetra==true) {
+	            cadenaMayusculas.append(Character.toUpperCase(caracterActual)); // Convertir la primera letra a mayúscula
+	            primeraLetra = false; // Cambiar el estado 
+	        } else {
+	            cadenaMayusculas.append(caracterActual); // Mantener el carácter tal como esta
+	        }
+	        
+	        // Verificar si el carácter actual es un espacio en blanco o un carácter de puntuación
+	        if (Character.isWhitespace(caracterActual) || Character.isWhitespace(caracterActual)) {
+	            primeraLetra = true; // Establecer la bandera en verdadero para la próxima letra
+	        }
+	    }
+	    
+	    return cadenaMayusculas.toString();
 	}
+		
+		
 }
