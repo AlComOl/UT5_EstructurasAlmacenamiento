@@ -74,7 +74,7 @@ public class ApuntesExplicacion {
 		System.out.println(alvaro.toString());
 	
 	
-//	DICISION DE CADENAS STRINGTOKENICER
+//	DIVISION DE CADENAS STRINGTOKENICER
 	/*este código divide una frase en palabras y las imprime una por una en líneas separadas.
 	*Es una forma útil de separar una cadena de texto en palabras individuales para su procesamiento posterior.*/
 	

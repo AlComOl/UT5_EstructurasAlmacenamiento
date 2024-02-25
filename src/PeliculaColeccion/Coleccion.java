@@ -2,7 +2,7 @@ package PeliculaColeccion;
 /***********************************************************************************
  * @author Álvaro Comenge
  * 
- * @echa:9/02/24
+ * @Fecha:9/02/24
  * 
  * @category ArrayDePelículas
  * 
