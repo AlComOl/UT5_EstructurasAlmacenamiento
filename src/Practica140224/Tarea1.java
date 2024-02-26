@@ -124,8 +124,8 @@ public class Tarea1 {
 		            int sumaConAcarreo[] = new int[5];//vector nuevo donde metemos el numero mas grande
 		            
 		            sumaConAcarreo[0] = acarreo;//metemos en primer lugar el res division
-		            for(int i=1;i<suma.length;i++) {// iteramos
-		            	 sumaConAcarreo[i] = suma[i-1];//el error lo tenia aqui 
+		            for(int i=0;i<suma.length;i++) {// iteramos
+		            	 sumaConAcarreo[i+1] = suma[i];//el error lo tenia aqui 
 		            }
 		           
 		            suma= sumaConAcarreo;
