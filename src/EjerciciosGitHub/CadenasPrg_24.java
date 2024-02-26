@@ -24,48 +24,56 @@ public class CadenasPrg_24 {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Introduce cadena");
-		String cadena=sc.nextLine();
-		System.out.println("Introduce n primeros caracteres de la cadena");
-		int n=sc.nextInt();
 		
-	System.out.println(extraerNprimeros(cadena,n));
+		
+//		System.out.println("Introduce cadena");
+//		String cadena=sc.nextLine();
+//		System.out.println("Introduce n primeros caracteres de la cadena");
+//		int n=sc.nextInt();
+		
+//	System.out.println(extraerNprimeros(cadena,n));
+//	
+//	System.out.println(extraerUltimosCaracteres(cadena,n));
+//	
+//	System.out.println(eliminarEspacioEnBlancoAlFinal(cadena));
+//	
+//	System.out.println(eliminarEspacioEnBlancoAlPrincipio(cadena));
+//	
+//	System.out.println(eliminarAPartirdeP(1,cadena));
+		
+//	System.out.println("Introduce sucadena");
+//		String subCadena=sc.nextLine();
+//		String resultado=eliminarSubCadena(cadena,subCadena);
+//		System.out.println(resultado);	
+		
+		
+	System.out.println(insertarCadena("Hola llamo Avaro","me",5));	
 	
-	System.out.println(extraerUltimosCaracteres(cadena,n));
-	
-	System.out.println(eliminarEspacioEnBlancoAlFinal(cadena));
-	
-	System.out.println(eliminarEspacioEnBlancoAlPrincipio(cadena));
-	
-	System.out.println(eliminarAPartirdeP(1,cadena));
-	
-	
-	eliminarSubCadena(epe,holamellamoPepe);
 	
 	}
-
+	/******************************************************
+	 * @author acome
+	 * @param cadena
+	 * @param numero donde termina la cadena
+	 * @descripcion extrare la cadena mediante la duncion substring 
+	 * de subcadenas pasando el principio de la cadena u el n numero final.
+	 * ****************************************************/
 	public static String extraerNprimeros(String cadena,int n) {
-		/******************************************************
-		 * @author acome
-		 * @param cadena
-		 * @param numero donde termina la cadena
-		 * @descripcion extrare la cadena mediante la duncion substring 
-		 * de subcadenas pasando el principio de la cadena u el n numero final.
-		 * ****************************************************/
+		
 		
 		String nuevaCadena=cadena.substring(0, n);
 		
 		return nuevaCadena;
 	}
-	
+	/***************************************************************
+	 * @author acome
+	 * @param
+	 * @param
+	 * @descripcion	
+	 * 
+	 * *************************************************************/
 	public static String extraerUltimosCaracteres(String cadena, int n) {
-		/***************************************************************
-		 * @author acome
-		 * @param
-		 * @param
-		 * @descripcion	
-		 * 
-		 * *************************************************************/
+		
 		
 		String nuevaCadena=cadena.substring(cadena.length()-n, cadena.length());
 		
@@ -73,27 +81,22 @@ public class CadenasPrg_24 {
 		return nuevaCadena;
 		
 	}
-	
+	/***************************************************************
+	 * @author acome
+	 * @param
+	 * @param
+	 * @descripcion	Eliminar los espacios en blanco que haya al final de la cadena.
+	 * 
+	 * *************************************************************/
 	public static String eliminarEspacioEnBlancoAlFinal(String cadena) {
-		/***************************************************************
-		 * @author acome
-		 * @param
-		 * @param
-		 * @descripcion	Eliminar los espacios en blanco que haya al final de la cadena.
-		 * 
-		 * *************************************************************/
+		
 		String nuevaCadena=cadena.trim();
 		return nuevaCadena;
 		
 	}
+	
 	public static String eliminarEspacioEnBlancoAlPrincipio(String cadena) {
-		/***************************************************************
-		 * @author acome
-		 * @param
-		 * @param
-		 * @descripcion	Eliminar los espacios en blanco que haya al final de la cadena.
-		 * 
-		 * *************************************************************/
+		
 		String nuevaCadena=cadena.replaceAll("^\\s+", "");
 		return nuevaCadena;
 		
@@ -117,28 +120,35 @@ public class CadenasPrg_24 {
 	return nuevacadena;	
 	}
 	
-	public static HashSet<String> eliminarSubCadena(String subCadena, String cadena) {
-		HashSet<String> cadenaHashSet=new HashSet();
-		int i;
+	public static String eliminarSubCadena(String cadena, String subCadena) {
+//		hola me llamo alvaro	
+		int posini=cadena.indexOf(subCadena);//empezamos subcadena
+//		posini= sacaria la posicion 5 entero
+		int posfin=posini+subCadena.length();
+//		posfin=llamo alvaro
 		
-		cadenaHashSet.add(cadena);
+		String nuevaCadena=cadena.substring(0,posini);
 		
-		if(cadenaHashSet.contains(subCadena)==true) {
-			for(String elemento:cadenaHashSet) {
-				if(elemento.equalsIgnoreCase(subCadena)) {
-				int pos=elemento.indexOf(cadena);
-				
-				for(i=0;i<subCadena.length();i++) 
-					
-				
-				cadena.substring(i, pos);
-					
-				}
-			}
-		}
-	return cadenaHashSet;	
-	}
+		String  posdespues=cadena.substring(posfin);
 	
+	return nuevaCadena+posdespues;	
+	}
+	/***************************************************************
+	 * @param
+	 * @param
+	 * @descripcion	g. Insertar una cadena dentro de otra a partir de la posición p.
+	 * 
+	 * *************************************************************/
+	public static String insertarCadena(String cadena,String Subcadena, int p) {
+		
+		String nuevaCadena=cadena.substring(p);
+		String nuevaSubCadena=Subcadena;
+		String nuevaPrincipioCadena=cadena.substring(0,p);
+		
+		return  nuevaPrincipioCadena+nuevaSubCadena+nuevaCadena;
+		
+		
+	}
 	
 	
 }
