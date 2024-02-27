@@ -73,17 +73,5 @@ public class Palabra {
 		idioma.append("\n Traduccion al Frances : ");idioma.append(frances);
 		return idioma.toString();//devolvemos la cadena
 	}
-	 public static void getMenu(){
-		 /***********************************************
-		  * @autor acome
-		  * @descripcion Es el menu de main 
-		  * 
-		  * **********************************************/
-	        System.out.println("Elige una opcion:");
-	        System.out.println("1.Anadir una palabra");
-	        System.out.println("2.Buscar una palabra en otro idioma");
-	        System.out.println("3.Modificar palabra");
-	        System.out.println("4.Eliminar palabra");
-	        
-	 }	 
+	 
 }

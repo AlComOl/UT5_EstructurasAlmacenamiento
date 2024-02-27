@@ -16,6 +16,23 @@ import java.util.*;
 
 
 public class TestMainVocabulario {
+	
+	/***********************************************
+	  * @autor acome
+	  * @descripcion Es el menu de main 
+	  * 
+	  * **********************************************/
+	public static void getMenu(){
+		 
+	        System.out.println("Elige una opcion:");
+	        System.out.println("1.Anadir una palabra");
+	        System.out.println("2.Buscar una palabra en otro idioma");
+	        System.out.println("3.Modificar palabra");
+	        System.out.println("4.Eliminar palabra");
+	        System.out.println("5.Salir");
+	        
+	 }	 
+	
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		int key;
@@ -24,7 +41,7 @@ public class TestMainVocabulario {
 		
 		
 		do {
-		 Palabra.getMenu();
+		 getMenu();
 		 key=sc.nextInt();
 		
 		
@@ -58,7 +75,11 @@ public class TestMainVocabulario {
 				v.eliminarPalabra(eliminar);
 				
 			break;
-			default:
+			case 5:
+				
+				System.out.println("Adios");
+			break;
+			default :
 				System.out.println("La opcion no esta contemplada");
 			}
 			

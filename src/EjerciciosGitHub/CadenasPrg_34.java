@@ -17,7 +17,7 @@ public class CadenasPrg_34 {
 				System.out.println("Dame el numero");
 				numero=in.nextInt();
 				cadena=String.valueOf(numero);
-				System.out.println("Para comprobar que es cadena, lo duplicamos, debe salir los mismos numeros dos veces");
+				
 				System.out.println("Cadena original: "+cadena);
 				System.out.println(cadena+cadena);
 				break;
