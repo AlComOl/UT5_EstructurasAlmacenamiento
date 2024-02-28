@@ -1,11 +1,11 @@
-package ClaseArrays;
+package RepasoArrayListCadenas;
 import java.util.*;
 import java.util.Arrays;
 
 public class Apuntes {
 
 	public static void main(String []args){
-		Vector v4=new Vector();
+		Vector<String> v4=new Vector<>();
 		int [] v1 = {8, 5, 6, 2, 7};
 		int [] v2 = {8, 5, 6, 2, 7};
 		int [] v3 = {8, 5, 6, 2, 7};
@@ -37,12 +37,16 @@ public class Apuntes {
 		System.out.println("NO está el valor");
 		
 		
-//		for(int i=0; i<v4.size(); i++){
-//			System.out.print(v4.elementAt(i)+"\t");
-//			}
-//			for(String x: v4){
-//			System.out.print(x + "\t");
-//			}
+		v4.add("jose");
+		v4.add("pepe");
+		v4.add("Luis");
+		for(int i=0; i<v4.size(); i++){
+			System.out.print(v4.elementAt(i)+"\t");
+			}
+		
+			for(String x: v4){
+			System.out.print(x + "\t");
+			}
 		}
 
 }

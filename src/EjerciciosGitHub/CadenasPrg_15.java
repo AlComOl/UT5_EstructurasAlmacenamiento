@@ -13,13 +13,13 @@ import java.util.Scanner;
 
 public class CadenasPrg_15 {
     public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Ingrese texto");
-        String ejemplo = tec.nextLine();
+        String ejemplo = sc.nextLine();
 
         System.out.println("Ingrese subcadena a buscar");
-        String entrada = tec.nextLine();
+        String entrada = sc.nextLine();
 
         if (ejemplo.indexOf(entrada) != -1) {
             ejemplo = ejemplo.replaceAll(entrada, "");
