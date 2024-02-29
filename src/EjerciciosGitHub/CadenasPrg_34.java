@@ -69,12 +69,12 @@ public class CadenasPrg_34 {
          cadena = sc.next();
         
           
-         try {//sino hay 
+         try {//sino hay excepción
              numero = Integer.valueOf(cadena);
 
              System.out.println("la cadena String que hemos introducido ahora es un numero integer " + numero);
             
-         } catch (NumberFormatException e) {//Si hay excepcion 
+         } catch (NumberFormatException e) {//Si hay excepción 
              System.out.println("Error: La cadena no se puede convertir a numero");
          }
     	
