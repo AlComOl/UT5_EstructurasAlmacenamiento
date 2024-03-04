@@ -7,17 +7,29 @@ public class Caballo {
 	
 	public String nombre;
 	public  String color ;
+	private ArrayList<Paseo> paseos;//una lista de paseos cada caballo
 	
 	public Caballo() {
-		
+		paseos=new ArrayList<Paseo>();
 		
 	}
 	public Caballo(String nombre,String color) {
 		this.nombre=nombre;
 		this.color=color;
-		
+		paseos=new ArrayList<Paseo>();
 	}
 	
+	
+
+	
+	
+	
+	public Paseo getPaseos(int x) {
+		return paseos.get(x);
+	}
+	public void addPaseo( Paseo p) {
+		this.paseos.add(p);//añado paseo 
+	}
 	  
 	
 	 public String getNombre() {
@@ -33,30 +45,11 @@ public class Caballo {
 		public void setColor() {
 			this.color = color;
 		}
-//		public Caballo getCaballo() {
-//			return caballo;
-//		}
-//		public void setCaballo(Caballo caballo) {
-//			this.caballo = caballo;
-//		}
+
 		
 	
 	
 	 
-	 
-//	public static boolean consultarOcupacion() {
-//		
-//		return hola;
-//	}
-	
-	public static void reservarPaseo() {
-		
-		
-	}
-	
-	public static void  addPaseo() {
-		
-		
-	}
+
 	
 }

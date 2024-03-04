@@ -7,42 +7,42 @@ public class Cliente {
 	private String nombre;
 	private String apellidos;
 	private int telefono;
-	private Date diaSet;
+	
+	private ArrayList<Paseo> paseos;//aqui el cliente tieen un listado de paseos 
 	
 	
 	public Cliente () {
+		paseos=new ArrayList<Paseo>();
 		
 	}
 	public Cliente (String nombre,String apellidos,int telefono) {
 		this.nombre=nombre;
 		this.apellidos=apellidos;
 		this.telefono=telefono;
-		
+		paseos=new ArrayList<Paseo>();
 		
 	}
 	
-	
-	
-	
-	public static void reservarPaseo() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese nombre cliente: ");
-        int nombre = sc.nextInt();
-        System.out.print("Ingrese el caballo: ");
-        int caballo = sc.nextInt();
-        System.out.print("Ingrese la fecha del paseo  ");
-        int fecha = sc.nextInt();
-        
-        
-
+	public Paseo getPaseos(int x) {
+		return paseos.get(x);
 	}
 	
-//	public static String toString() {
-//		
-//		
-//		Cliente.toString();
-//		
-//	}
+	public void addPaseo( Paseo p) {
+		this.paseos.add(p);//añado paseo 
+	}
+		
+	public  String toString() {
+		
+		String info= this.nombre+" "+this.apellidos+" "+this.telefono;
+		
+		for(Paseo x:paseos) {
+			
+			info+=x.toString();
+			
+		}
+		
+		return info;
+	}
 	
 	
 
@@ -64,12 +64,7 @@ public class Cliente {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	public Date getDiaSet() {
-		return diaSet;
-	}
-	public void setDiaSet(Date diaSet) {
-		this.diaSet = diaSet;
-	}
+	
 	
 	
 }

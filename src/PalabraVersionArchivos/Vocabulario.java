@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Vocabulario{
 	/* vocabulario es un ArrayList que almacenará instancias de la clase Palabra, 
 	   representando el diccionario*/
-		 static ArrayList<Palabra> vocabulario=new ArrayList<Palabra>();
+		static ArrayList<Palabra> vocabulario=new ArrayList<Palabra>();
 		static Scanner sc=new Scanner(System.in); 
 		
 		
