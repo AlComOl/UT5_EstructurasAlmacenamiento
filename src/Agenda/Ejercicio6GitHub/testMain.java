@@ -1,14 +1,20 @@
 package Agenda.Ejercicio6GitHub;
 
 import java.util.*;
+/**************************************************
+ * @author acome
+ * 
+ * **************************************************/
 
 public class testMain {
 
 	
-	private static ArrayList<Contacto> contactos=new ArrayList<>();
+	
 	
 	
 	public static void main (String [] args) {
+		
+		  ArrayList<Contacto> contactos=new ArrayList<>();
 		
 		Scanner sc=new Scanner(System.in);
 		byte key=0;
@@ -20,8 +26,8 @@ public class testMain {
 			key=sc.nextByte();
 			switch (key) {
 			case 1:
-				
-				addContacto();
+//				crear el contacto buscarlo y si esta añadiorlño
+				addContacto(contactos);
 				System.out.println("El contacto ha sido anadido");
 				sc.nextLine();
 				break;
@@ -34,7 +40,7 @@ public class testMain {
 				System.out.println("Introduce nombre a buscar");
 				String busqueda=sc.next();
 //				sc.next();
-				int busca=buscarContacto(busqueda);
+				int busca=buscarContacto(busqueda,contactos);
 				
 				if(busca!=-1) {
 					System.out.println(contactos.get(busca).toString());
@@ -46,7 +52,7 @@ public class testMain {
 			case 4:
 				System.out.println("Introduce Dni a buscar");
 				String dnibusqueda=sc.next();
-				int	busdni=buscarDni(dnibusqueda);
+				int	busdni=buscarDni(dnibusqueda,contactos);
 				
 				if(busdni!=-1) {
 					System.out.println(contactos.get(busdni).toString());
@@ -59,7 +65,7 @@ public class testMain {
 			case 5:
 				System.out.println("Introduce SubCadena para filtar Dni ");
 				String subcat=sc.next();
-				contLetraDni(subcat);
+				contLetraDni(subcat,contactos);
 				break;
 			case 6:
 				
@@ -84,8 +90,8 @@ public class testMain {
 		System.out.println("5-Buscar dni por letra");
 	}
 	
-	public static void addContacto() {
-		
+	public static void addContacto(ArrayList<Contacto> contactos) {
+		//pasar atributos en el main , pasarselo par la funcion i verificar que el contacto no este, sino esta que lo añada
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("Introduce dni");
@@ -103,7 +109,7 @@ public class testMain {
 
 	}
 	
-	public static int  buscarContacto(String busqueda) {
+	public static int  buscarContacto(String busqueda,ArrayList<Contacto> contactos) {
 		int rdo=-1, i=0;
 				for(Contacto x : contactos) {
 		
@@ -114,11 +120,11 @@ public class testMain {
 			}
 			i++;
 		}
-//		System.out.println(rdo);
+
 	 return rdo;
 	}
 	
-	public static int buscarDni(String dni) {
+	public static int buscarDni(String dni,ArrayList<Contacto> contactos) {
 		int rdo=-1,i=0;
 		
 		for(Contacto x : contactos) {
@@ -135,7 +141,7 @@ public class testMain {
 		
 	}
 	
-	public static void contLetraDni(String letra) {
+	public static void contLetraDni(String letra,ArrayList<Contacto> contactos) {
 		
 		
 		for(Contacto x : contactos) {

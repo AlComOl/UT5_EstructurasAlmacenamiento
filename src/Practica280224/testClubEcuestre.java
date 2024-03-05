@@ -3,10 +3,13 @@ import java.util.*;
 
 public class testClubEcuestre {
 
-	private static ArrayList<Caballo> caballos = new ArrayList<>();
-    private static ArrayList<Cliente> clientes = new ArrayList<>();
+	
 
     public static void main(String[] args) {
+    	
+    	 ArrayList<Caballo> caballos = new ArrayList<>();
+         ArrayList<Cliente> clientes = new ArrayList<>();
+    	
         Scanner sc = new Scanner(System.in);
         int opcion;
 
@@ -23,19 +26,19 @@ public class testClubEcuestre {
 
             switch (opcion) {
                 case 1:
-                    crearCaballo();
+                    crearCaballo(caballos);
                     break;
                 case 2:
-                    crearCliente();
+                    crearCliente(clientes);
                     break;
                 case 3:
-                    mostrarInfoCliente();
+                    mostrarInfoCliente(clientes);
                     break;
                 case 4:
 //                    mostrarInfoCaballo();
                     break;
                 case 5:
-                    reservarPaseo();
+                    reservarPaseo(clientes,caballos);
                     break;
                 case 0:
                     System.out.println("¡Hasta luego!");
@@ -45,7 +48,7 @@ public class testClubEcuestre {
             }
         } while (opcion != 0);
     }
-    public static void crearCaballo() {
+    public static void crearCaballo( ArrayList<Caballo> caballos) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el nombre del caballo: ");
         String nombre = sc.nextLine();
@@ -58,7 +61,7 @@ public class testClubEcuestre {
         System.out.println("Caballo creado correctamente.");
     }
   
-    public static void crearCliente() {
+    public static void crearCliente(  ArrayList<Cliente> clientes ) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el nombre del cliente: ");
         String nombre = sc.nextLine();
@@ -78,7 +81,7 @@ public class testClubEcuestre {
     
     
     
-	public static void reservarPaseo() {
+	public static void reservarPaseo( ArrayList<Cliente> clientes, ArrayList<Caballo> caballos) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese nombre cliente: ");
         String nombre = sc.nextLine();//buscamos el cliente para meterle el paseo que vamos a crear
@@ -117,7 +120,7 @@ public class testClubEcuestre {
         
 
 	}
-	public static void mostrarInfoCliente() {
+	public static void mostrarInfoCliente( ArrayList<Cliente> clientes) {
 		Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese nombre cliente: ");
         String nombre = sc.nextLine();

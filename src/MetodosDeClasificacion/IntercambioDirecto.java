@@ -10,7 +10,7 @@ public class IntercambioDirecto {
 		
 		int v[]= {3,1,2,10,5,8,9};
 		
-		intercambioDirecto(v,7);
+		intercambioDirecto(v,N_EL);
 		
 		mostrar(v);
 		
