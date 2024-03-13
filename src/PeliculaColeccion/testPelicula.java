@@ -18,7 +18,7 @@ public class testPelicula {
 		 Pelicula peli2=new Pelicula("Los inmortales", "Eliot Ness",1975,Pelicula.ACCION);
 		 
 		 
-		 System.out.println(peli1.toString());
+		 System.out.println(peli2.toString());
 		 
 		 System.out.println(peli2.getGeneroComoCadena());
 

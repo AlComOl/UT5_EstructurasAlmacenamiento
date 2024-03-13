@@ -32,13 +32,29 @@ public class testClubEcuestre {
                     crearCliente(clientes);
                     break;
                 case 3:
-                    mostrarInfoCliente(clientes);
+                	 System.out.print("Ingrese nombre cliente: ");
+                     String nombreCli = sc.nextLine();
+                     
+                     mostrarInfoCliente(clientes,nombreCli);
                     break;
                 case 4:
 //                    mostrarInfoCaballo();
                     break;
                 case 5:
-                    reservarPaseo(clientes,caballos);
+                	 System.out.print("Ingrese nombre cliente: ");
+                     String nombre = sc.nextLine();//buscamos el cliente para meterle el paseo que vamos a crear
+                	System.out.print("Ingrese el caballo: ");
+                    String nombreCaballo = sc.nextLine();
+                    System.out.print("Ingrese el dia: ");
+                    int dia = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Ingrese el mes: ");
+                    int mes = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Ingrese el anyo: ");
+                    int anyo = sc.nextInt();
+                    sc.nextLine();
+                    reservarPaseo(clientes,caballos,nombre,nombreCaballo,dia,mes,anyo);
                     break;
                 case 0:
                     System.out.println("¡Hasta luego!");
@@ -81,23 +97,8 @@ public class testClubEcuestre {
     
     
     
-	public static void reservarPaseo( ArrayList<Cliente> clientes, ArrayList<Caballo> caballos) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese nombre cliente: ");
-        String nombre = sc.nextLine();//buscamos el cliente para meterle el paseo que vamos a crear
-     
-        System.out.print("Ingrese el caballo: ");
-        String nombreCaballo = sc.nextLine();
-        System.out.print("Ingrese el dia: ");
-        int dia = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Ingrese el mes: ");
-        int mes = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Ingrese el anyo: ");
-        int anyo = sc.nextInt();
-        sc.nextLine();
-        
+	public static void reservarPaseo( ArrayList<Cliente> clientes, ArrayList<Caballo> caballos,String nombre,String nombreCaballo,int dia,int mes,int anyo) {
+		
         Paseo x =new Paseo();//se crea el paseo con los atribitos correspondientes 
         x.setDia(dia);
         x.setMes(mes);
@@ -120,10 +121,7 @@ public class testClubEcuestre {
         
 
 	}
-	public static void mostrarInfoCliente( ArrayList<Cliente> clientes) {
-		Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese nombre cliente: ");
-        String nombre = sc.nextLine();
+	public static void mostrarInfoCliente( ArrayList<Cliente> clientes,String nombre) {
         
 		for(Cliente i :clientes) {
 			if(i.getNombre().equalsIgnoreCase(nombre)) {
