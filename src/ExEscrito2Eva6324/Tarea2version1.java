@@ -38,8 +38,7 @@ public class Tarea2version1 {
 					System.out.println(fecha[i]);
 				}
 			}
-		
-
+			sc.close();
 	}
 
 }

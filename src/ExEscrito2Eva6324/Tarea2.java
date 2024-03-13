@@ -8,9 +8,6 @@ import java.util.*;
  * 
  * Solo aparecen los dias en que se ha producido lluvia,Los dias que no aparecen m la lluvia es cero.
  * 
- * 
- * 
- * 
  * *************************************************************************************************************************************************************************************************************/
 public class Tarea2 {
 
@@ -18,15 +15,14 @@ public class Tarea2 {
 		
 		Scanner sc=new Scanner(System.in);
 		  final int MAX=365;
-		  int cont=0;
-		  
-		
+		  int cont=0,i;
+		  boolean c=false; 
 		String fechas[]=new String[MAX];
 		float pluviosidad[]=new float[MAX];
 		String municipio;
 		float media=0,sum=0;
 		
-		String continuar ="s";
+		int continuar =0;
 		
 		System.out.println("Introduce nombre del municipio");
 		municipio=sc.next();
@@ -36,29 +32,30 @@ public class Tarea2 {
 		
 		
 	
-		for(int i=0;i<fechas.length&&continuar.equalsIgnoreCase("s");i++) {
+		for(i=0;i<fechas.length&&c==false;i++) {
 			
 				System.out.println("Fecha");
 				fechas[i]=sc.next();
 				System.out.println("litros");
 				pluviosidad[i]=sc.nextFloat();
 				sum+=pluviosidad[i];
-				System.out.println("Quieres continuar");
-				continuar=sc.next();
+				System.out.println("Quieres continuar 1-Si 2-No");
+				continuar=sc.nextInt();
+				if(continuar==2) {
+					c=true;
+				}
 		}
 		
 			media=sum/MAX;
-		
+		System.out.println(municipio);
 		System.out.println("Pluviosidad media "+ media+"litros");
 		System.out.println("Lo dias que ha llovido y no se ha superado la pluviosidad media han sido");
 		
-			for(int j=0;j<pluviosidad.length;j++) {
-						
-						if(pluviosidad[j]<media&&pluviosidad[j]!=0.0) {
-							if()
-						System.out.println(fechas[j]);
-						}
-					}
+			for(int j=0;j<i;j++) {
+				if(pluviosidad[i]<media)
+				System.out.println(fechas[j]);
+			}
+		}
 
 	}
-}
+
